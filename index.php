@@ -1,5 +1,5 @@
 <?php
-// hello world!
+// awdadadadadwad
 $page = $_GET['page'];
 
 
