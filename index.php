@@ -1,5 +1,4 @@
 <?php
-// weeeeeeeee time travel
 $page = $_GET['page'];
 
 
@@ -32,7 +31,7 @@ if($page){
 							$gecko=explode("_",$menustr);
 							require_once("admin/menu_layout.php");
 							
-							$gmenu = new Gmenu();q
+							$gmenu = new Gmenu();
 							$menu_layout = $gmenu->layout($gecko);
 
 							$output2 = $xweb;
