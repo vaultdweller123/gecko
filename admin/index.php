@@ -2,18 +2,13 @@
 <head>
 </head>
 <body>
-<h1>Admin</h1>
-<p>
-<a href="/admin/create_webpage.php">create pages</a><br />
-<a href="/admin/webpage.php">web pages</a><br />
-</p>
-<p>
-<a href="/admin/create_template.php">create template</a><br />
-<a href="/admin/template.php">templates</a>
-<p>
-<p>
-<a href="/admin/create_menu.php">create dynamic menu</a><br />
-<a href="/admin/menu.php">view menu</a>
-</p>
+<h1>log-in</h1>
+<table>
+<form method="post" action="login.php">
+<tr><td>username:</td><td><input type="text" name="user" value="<?=$_GET['user']?>" /></td></tr>
+<tr><td>password:</td><td><input type="password" name="pass" value="<?=$_GET['pass']?>" /></td></tr>
+<tr><td><input type="submit" name="login" value="login" /></td></tr>
+</form>
+</table>
 </body>
 </html>
