@@ -2,6 +2,8 @@
 // all right reserved JC and Aldrin 2011 
 $page = $_GET['page'];
 
+//bogart
+
 
 
 mysql_connect("localhost","root","");
