@@ -1,5 +1,6 @@
 <?php
-jc
+// all right reserved JC and Aldrin 2011 
+$page = $_GET['page'];
 
 
 
