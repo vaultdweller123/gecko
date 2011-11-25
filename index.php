@@ -1,7 +1,7 @@
 <?php
 $page = $_GET['page'];
+//:) :) :>
 
-// start
 
 mysql_connect("localhost","root","");
 					mysql_select_db("gecko");
@@ -21,7 +21,7 @@ if($page){
 						
 						
 						
-						
+					// wataaaaaaaaaaaaaaaaaaaaaaaaa	
 				
 
 						if($xtemp==null&&$flag!='-1'){
