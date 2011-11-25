@@ -60,7 +60,7 @@ while($row2=mysql_fetch_array($sql2)){
 </tr>
 <tr><td>&nbsp;<input type="hidden" name="id" value="<?=$item?>" /></td></tr>
 
-<tr><td colspan="2"><input type="submit" name="save" value="save" /><a style="text-decoration:none;" href="delete_menu_item.php?menu_item=<?=$row5['menu_item']?>&menu=<?=$menu?>"><button type="button">delete</button></a></td></tr>
+<tr><td colspan="2"><input type="submit" name="save" value="save" /><a style="text-decoration:none;" href="delete_menu_item.php?menu_item=<?=$item?>&menu=<?=$menu?>"><button type="button">delete</button></a></td></tr>
 </table>
 <?php } ?>
 

@@ -76,6 +76,8 @@ if($page){
 }else{
 
 
+
+
 					$sql = mysql_query("SELECT t.content AS template_cont, w.content AS webpage_cont FROM webpage AS w left join template AS t ON w.temp_id = t.id WHERE w.homepage='1'");
 
 					while($row = mysql_fetch_array($sql)){
@@ -84,9 +86,12 @@ if($page){
 						$xtemp = $row['template_cont'];
 						
 						//menu
+					
 						$menustart = strpos($xtemp,"{gecko_menu");
 						$menustr = substr($xtemp,$menustart,17);
 						$gecko=explode("_",$menustr);
+						
+					
 						
 						require_once("admin/menu_layout.php");
 						$gmenu = new Gmenu();

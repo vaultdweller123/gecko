@@ -20,14 +20,14 @@ jQuery(document).ready(function(){
 </script>
 </head>
 <body>
-<h1>Web Pages</h1>
+<h1>Menu</h1>
 
 
 <form name="form1" method="post" action="delete_menu.php">
 <table>
 <thead>
 <tr>
-<th><input type="checkbox" name="chkall" id="chkall" /></th><th>Web Pages</th>
+<th><input type="checkbox" name="chkall" id="chkall" /></th><th>Menu</th>
 </tr>
 </thead>
 <tbody>
