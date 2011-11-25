@@ -3,8 +3,9 @@
 require_once("connect.php");
 
 $name = $_POST['menu_name'];
+$id = $_POST['menu_id'];
 
-$sql = mysql_query("INSERT INTO menu VALUES ('','".$name."','')");
+$sql = mysql_query("INSERT INTO menu VALUES ('','".$name."','".$id."')");
 
 if($sql){
 echo "<script type='text/javascript'>alert('New Menu Saved');</script>";
