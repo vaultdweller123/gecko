@@ -14,7 +14,7 @@ if(mysql_num_rows($sql)>0){
 
 		if($pass==$row['password']){
 			$_SESSION['id'] = $row['id'];
-			echo "<script>window.location='dashboard.php'</script>";
+echo "<script>window.location='/admin/dashboard.php'</script>";
 		}else{
 			echo "<script>alert('Password incorrect!');</script>";
 			echo "<script>window.location='/admin/index.php?user=".$user."&pass=".$pass."'</script>";
