@@ -1,9 +1,9 @@
 <?php
 $page = $_GET['page'];
-weeeeeeeeeeeeeee
 
-mysql_connect("localhost","root","");
-					mysql_select_db("gecko");
+
+mysql_connect("localhost","root","")
+					mysql_select_db("gecko")
 
 if($page){
 
