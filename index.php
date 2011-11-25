@@ -1,6 +1,6 @@
 <?php
 $page = $_GET['page'];
-//:) :) :>
+
 
 
 mysql_connect("localhost","root","");
@@ -21,7 +21,7 @@ if($page){
 						
 						
 						
-					// wataaaaaaaaaaaaaaaaaaaaaaaaa	
+				
 				
 
 						if($xtemp==null&&$flag!='-1'){
@@ -106,11 +106,10 @@ if($page){
 					}
 					
 				
-					// jc ni
-
+				
 }
 
 
-// end
+
 
 ?>
