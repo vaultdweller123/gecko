@@ -49,7 +49,7 @@ while($row2=mysql_fetch_array($sql2)){
 <?php } ?>
 
 <p><a href="/admin/webpage.php">view web pages</a></p>
-<p><a href="/admin/">main menu</a></p>
+<p><a href="/admin/dashboard.php">main menu</a></p>
 
 </body>
 </html>

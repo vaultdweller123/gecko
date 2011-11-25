@@ -52,6 +52,6 @@ while($row=mysql_fetch_array($sql)){
 
 
 
-<p><a href="/admin/">main menu</a></p>
+<p><a href="/admin/dashboard.php">main menu</a></p>
 </body>
 </html>

@@ -47,6 +47,6 @@ while($row=mysql_fetch_array($sql)){
 </table>
 <p><input type="submit" name="delete" value="delete" /></p>
 </form>
-<p><a href="/admin/">main menu</a></p>
+<p><a href="/admin/dashboard.php">main menu</a></p>
 </body>
 </html>
