@@ -1,5 +1,5 @@
 <?php
-$page = $_GET['page'];
+$page = $_GET['WOWCHECKIN'];
 
 
 
