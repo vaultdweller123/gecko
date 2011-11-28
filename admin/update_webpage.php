@@ -1,5 +1,6 @@
 <html>
 <head>
+<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
 </head>
 <body>
 <?php
@@ -37,7 +38,7 @@ while($row2=mysql_fetch_array($sql2)){
 </select>
 </td>
 </tr>
-<tr><td>content</td><td><textarea name="content" style="height: 451px;width: 577px;"><?=$row['content']?></textarea></td></tr>
+<tr><td>content</td><td><textarea id="content" name="content"><?=$row['content']?></textarea></td></tr>
 <tr><td colspan="2">&nbsp;</td></tr>
 <tr><td colspan="2" align="center"><input type="submit" name="save" value="save" /></td></tr>
 </table>
@@ -50,6 +51,11 @@ while($row2=mysql_fetch_array($sql2)){
 
 <p><a href="/admin/webpage.php">view web pages</a></p>
 <p><a href="/admin/dashboard.php">main menu</a></p>
-
+<script type="text/javascript">
+				CKEDITOR.replace( 'content', 
+				{
+					height:400
+				});
+			</script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <head>
 </head>
 <body>
-<h1>Admin</h1>
+<h1>Dashboard</h1>
 <p>
 <a href="/admin/create_webpage.php">create pages</a><br />
 <a href="/admin/webpage.php">web pages</a><br />
