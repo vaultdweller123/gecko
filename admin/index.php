@@ -62,8 +62,8 @@ jQuery(document).ready(function(){
 <body>
 <h1>log-in</h1>
 <table>
-<tr><td>username:</td><td><input type="text" name="user" id="user" value="<?=$_GET['user']?>" /></td></tr>
-<tr><td>password:</td><td><input type="password" name="pass" id="pass" value="<?=$_GET['pass']?>" /></td></tr>
+<tr><td>username:</td><td><input type="text" name="user" id="user" /></td></tr>
+<tr><td>password:</td><td><input type="password" name="pass" id="pass" /></td></tr>
 <tr><td><input type="submit" name="login" id="login" value="login" /></td></tr>
 </table>
 </body>
