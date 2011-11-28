@@ -12,7 +12,7 @@ include_once('loadCKEditor.php');
 <form method="post" action="/admin/create_template2.php">
 <table>
 <tr><td>Template Name</td><td><input type="text" name="template_name" /></td></tr>
-<tr><td>content</td><td><textarea name="content" id="content"></textarea></td></tr>
+<tr><td>content</td><td><textarea name="content" id="content">{gecko_content}</textarea></td></tr>
 <tr><td colspan="2">&nbsp;</td></tr>
 <tr><td colspan="2" align="center"><input type="submit" name="save" value="save" /></td></tr>
 </table>

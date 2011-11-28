@@ -28,7 +28,8 @@ $sql = mysql_query("SELECT * FROM menu WHERE id='".$id."'");
 while($row=mysql_fetch_array($sql)){
 
 ?>
-<h1><?=$row['name']?> </h1>
+<h1>name: <?=$row['name']?></h1>
+<h2>id: <?=$row['elem_id']?></h2>
 <h2>tag: {gecko_menu_<?=($gecko_menu+$row['id'])?>}</h2>
 <?php } ?>
 <form method="post" action="update_menu2.php" name="form1">
