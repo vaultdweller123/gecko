@@ -15,6 +15,7 @@ jQuery(document).ready(function(){
 
 
 
+			
 	
 			
 	
@@ -22,10 +23,12 @@ jQuery(document).ready(function(){
 			
 			
 			
-			
 				var page_name = jQuery("#page_name").val();
-				var content = jQuery("#content").val();
+				var content = CKEDITOR.instances.content.getData();
 				var template = jQuery("#template").val();
+			
+
+			
 			
 				if(page_name){
 			
