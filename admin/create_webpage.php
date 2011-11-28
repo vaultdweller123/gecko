@@ -1,6 +1,11 @@
 <html>
 <head>
-<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+<?php 
+//load gecko library
+include_once('class/gecko.php');
+// load CKEditor
+include_once('loadCKEditor.php');
+ ?>
 </head>
 <body>
 <h1>Web Pages</h1>
@@ -37,11 +42,5 @@ while($row=mysql_fetch_array($sql)){
 
 <p><a href="/admin/webpage.php">view web pages</a></p>
 <p><a href="/admin/dashboard.php">main menu</a></p>
-<script type="text/javascript">
-				CKEDITOR.replace( 'content', 
-				{
-					height:400
-				});
-			</script>
 </body>
 </html>

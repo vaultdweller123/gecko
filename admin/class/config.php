@@ -7,10 +7,6 @@ class Gconfig{
 	var $dbpass = '';
 	var $database = 'gecko';
 	
-	public function start_session(){
-		session_start();
-	
-	}
 	
 }
 

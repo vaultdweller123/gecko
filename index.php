@@ -31,7 +31,7 @@ if($page){
 							$menustart = strpos($xtemp,"{gecko_menu");
 							$menustr = substr($xtemp,$menustart,17);
 							$gecko=explode("_",$menustr);
-							require_once("admin/menu_layout.php");
+							require_once("admin/class/menu_layout.php");
 							
 							$gmenu = new Gmenu();
 							$menu_layout = $gmenu->layout($gecko);
@@ -49,7 +49,7 @@ if($page){
 								$menustart = strpos($xtemp,"{gecko_menu");
 								$menustr = substr($xtemp,$menustart,17);
 								$gecko=explode("_",$menustr);
-								require_once("admin/menu_layout.php");
+								require_once("admin/class/menu_layout.php");
 								
 								$gmenu = new Gmenu();
 								$menu_layout = $gmenu->layout($gecko);
@@ -93,7 +93,7 @@ if($page){
 						
 					
 						
-						require_once("admin/menu_layout.php");
+						require_once("admin/class/menu_layout.php");
 						$gmenu = new Gmenu();
 						$menu_layout = $gmenu->layout($gecko);
 					
