@@ -1,5 +1,5 @@
 <?php
-// all right reserved JC, Ron and Aldrin 2011..
+// All right reserved JC, Ron and Aldrin 2011..
 $page = $_GET['page'];
 
 
