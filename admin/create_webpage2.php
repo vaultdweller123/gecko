@@ -1,4 +1,4 @@
-<?php
+jc
 
 include_once('connect.php');
 

@@ -31,7 +31,7 @@ jQuery(document).ready(function(){
 </tr>
 </thead>
 <tbody>
-<?php
+jc
 
 require_once("connect.php");
 
@@ -43,7 +43,7 @@ while($row=mysql_fetch_array($sql)){
 <tr>
 <td><input type="checkbox" name="menu[]" id="menu" class="menu" value="<?=$row['id']?>" /></td><td><a href="update_menu.php?id=<?=$row['id']?>"><?=$row['name']?><a/></td>
 </tr>
-<?php } ?>
+jc } ?>
 </tbody>
 </table>
 <p><input type="submit" name="delete" value="delete" /></p>

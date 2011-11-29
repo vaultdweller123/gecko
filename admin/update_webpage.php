@@ -1,6 +1,6 @@
 <html>
 <head>
-<?php 
+jc 
 //load gecko library
 include_once('class/gecko.php');
 // load CKEditor
@@ -55,7 +55,7 @@ jQuery(document).ready(function(){
 </script>
 </head>
 <body>
-<?php
+jc
 
 $id = $_GET['id'];
 
@@ -66,14 +66,14 @@ $sql = mysql_query("SELECT * FROM webpage WHERE id='".$id."'");
 while($row=mysql_fetch_array($sql)){
 
 ?>
-<h1><?=$row['name']?><?php if($row['homepage']==1){ echo "(default)"; }  ?></h1>
+<h1><?=$row['name']?>jc if($row['homepage']==1){ echo "(default)"; }  ?></h1>
 <div id="message" style="background-color:green;"></div>
 
 <table>
 <tr><td>page name</td><td><input type="text" name="page_name" id="page_name" value="<?=$row['name']?>" /></td></tr>
 <tr><td>template</td>
 <td>
-<?php
+jc
 
 $sql2 = mysql_query("SELECT * FROM template");
 
@@ -82,12 +82,12 @@ $sql2 = mysql_query("SELECT * FROM template");
 <select name="template" id="template">
 <option>no template</option>
 
-<option value="-1" <?php if($row['temp_id']=='-1'){ echo "selected"; } ?>>use default template</option><?php
+<option value="-1" jc if($row['temp_id']=='-1'){ echo "selected"; } ?>>use default template</option>jc
 while($row2=mysql_fetch_array($sql2)){
 ?>
 
-<option value="<?=$row2['id']?>" <?php if($row2[id]==$row['temp_id']){ echo "selected"; } ?>><?=$row2['name']?></option>
-<?php } ?>
+<option value="<?=$row2['id']?>" jc if($row2[id]==$row['temp_id']){ echo "selected"; } ?>><?=$row2['name']?></option>
+jc } ?>
 </select>
 </td>
 </tr>
@@ -100,7 +100,7 @@ while($row2=mysql_fetch_array($sql2)){
 
 <p><a href="set_as_homepage.php?page=<?=$row['id']?>">set as homepage</a></p>
 
-<?php } ?>
+jc } ?>
 
 <p><a href="/admin/webpage.php">view web pages</a></p>
 <p><a href="/admin/dashboard.php">main menu</a></p>

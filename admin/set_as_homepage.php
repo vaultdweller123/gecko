@@ -1,4 +1,4 @@
-<?php
+jc
 
 $page = $_GET['page'];
 

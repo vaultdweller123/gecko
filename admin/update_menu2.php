@@ -1,4 +1,4 @@
-<?php
+jc
 
 $menu_id = $_POST['menu_id'];
 $item_name = mysql_real_escape_string($_POST['menu_item_name']);

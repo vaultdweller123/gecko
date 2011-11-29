@@ -1,6 +1,6 @@
 <html>
 <head>
-<?php 
+jc 
 // load gecko library
 include_once('class/gecko.php');
 // load CKEditor
@@ -67,7 +67,7 @@ jQuery(document).ready(function(){
 <tr><td>page name</td><td><input type="text" name="page_name" id="page_name" /></td></tr>
 <tr><td>template</td>
 <td>
-<?php
+jc
 
 include_once('connect.php');
 
@@ -79,11 +79,11 @@ $sql = mysql_query("SELECT * FROM template");
 <select name="template" id="template">
 <option>no template</option>
 <option value="-1">use default template</option>
-<?php
+jc
 while($row=mysql_fetch_array($sql)){
 ?>
 <option value="<?=$row['id']?>"><?=$row['name']?></option>
-<?php } ?>
+jc } ?>
 </select>
 </td>
 </tr>

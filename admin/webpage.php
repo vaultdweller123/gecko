@@ -29,7 +29,7 @@ jQuery(document).ready(function(){
 </tr>
 </thead>
 <tbody>
-<?php
+jc
 
 include_once('connect.php');
 
@@ -40,9 +40,9 @@ while($row=mysql_fetch_array($sql)){
 
 ?>
 <tr>
-<td><input type="checkbox" name="webpage[]" id="webpage" class="webpage" value="<?=$row['id']?>" /></td><td><a href="update_webpage.php?id=<?=$row['id']?>"><?=$row['name']?><?php if($row['homepage']==1){ echo "(set as homepage)"; } ?><a/></td>
+<td><input type="checkbox" name="webpage[]" id="webpage" class="webpage" value="<?=$row['id']?>" /></td><td><a href="update_webpage.php?id=<?=$row['id']?>"><?=$row['name']?>jc if($row['homepage']==1){ echo "(set as homepage)"; } ?><a/></td>
 </tr>
-<?php } ?>
+jc } ?>
 </tbody>
 </table>
 <p><input type="submit" name="delete" value="delete" /></p>

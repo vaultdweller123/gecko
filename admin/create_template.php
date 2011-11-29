@@ -1,6 +1,6 @@
 <html>
 <head>
-<?php 
+jc 
 //load gecko library
 include_once('class/gecko.php');
 // load CKEditor

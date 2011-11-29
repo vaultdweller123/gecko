@@ -1,4 +1,4 @@
-<?php
+jc
 
 require_once("connect.php");
 
@@ -16,12 +16,12 @@ function send_to_parent(url){
 <body>
 <h1>Web Pages</h1>
 <ul>
-<?php 
+jc 
 $sql = mysql_query("SELECT * FROM webpage");
 while($row=mysql_fetch_array($sql)){
 ?>
 <li><a href="javascript:void(0);" onclick="send_to_parent(<?=$row['id']?>)"><?=$row['name']?></a></li>
-<?php } ?>
+jc } ?>
 </ul>
 </body>
 </html>

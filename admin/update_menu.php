@@ -17,7 +17,7 @@ jQuery(document).ready(function(){
 <body>
 
 <h1>Dynamic Menu</h1>
-<?php
+jc
 
 $id = $_GET['id'];
 $gecko_menu = 2011;
@@ -31,7 +31,7 @@ while($row=mysql_fetch_array($sql)){
 <h1>name: <?=$row['name']?></h1>
 <h2>id: <?=$row['elem_id']?></h2>
 <h2>tag: {gecko_menu_<?=($gecko_menu+$row['id'])?>}</h2>
-<?php } ?>
+jc } ?>
 <form method="post" action="update_menu2.php" name="form1">
 <table>
 
@@ -41,12 +41,12 @@ while($row=mysql_fetch_array($sql)){
 <td>
 <select name="menu_item_base">
 <option value="-1">root</option>
-<?php 
+jc 
 $sql2 = mysql_query("SELECT * FROM menu_item");
 while($row2=mysql_fetch_array($sql2)){
  ?>
 <option value="<?=$row2['id']?>"><?=$row2['name']?></option>
-<?php } ?>
+jc } ?>
 </select>
 </td>
 </tr>
@@ -57,44 +57,44 @@ while($row2=mysql_fetch_array($sql2)){
 </form>
 <h2>Preview</h2>
 <ul>
-<?php
+jc
 
 $sql3 = mysql_query("SELECT * FROM menu_item WHERE base='-1' AND menu='".$id."'");
 while($row3=mysql_fetch_array($sql3)){
 
 ?>
 <li><a href="/admin/update_menu_item.php?menu_item=<?=$row3['id']?>&menu=<?=$id?>"><?=$row3['name']?></a>
-<?php
+jc
 $sql4 = mysql_query("SELECT * FROM menu_item WHERE base!='-1' AND base='".$row3['id']."' AND menu='".$id."'");
 ?>
-<?php
+jc
 if(mysql_num_rows($sql4)>0){
 ?>
 <ul>
-<?php } ?>
+jc } ?>
 
-<?php 
+jc 
  
 
 while($row4=mysql_fetch_array($sql4)){
 ?>
 
-<?php
+jc
 if($row4['base']==$row3['id']){
 
 ?>
 <li><a href="/admin/update_menu_item.php?menu_item=<?=$row4['id']?>&menu=<?=$id?>"><?=$row4['name']?></a></li>
 
-<?php } ?>
+jc } ?>
 
 
 
-<?php } ?>
-<?php
+jc } ?>
+jc
 if(mysql_num_rows($sql4)>0){
 ?>
 </ul>
-<?php } ?>
+jc } ?>
 
 
 </li>
@@ -103,7 +103,7 @@ if(mysql_num_rows($sql4)>0){
 
 
 
-<?php } ?>
+jc } ?>
 
 </ul>
 <p><a href="/admin/menu.php">view menus</a></p>

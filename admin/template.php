@@ -32,7 +32,7 @@ jQuery(document).ready(function(){
 </tr>
 </thead>
 <tbody>
-<?php
+jc
 require_once("connect.php");
 
 $sql = mysql_query("SELECT * FROM template");
@@ -41,9 +41,9 @@ while($row=mysql_fetch_array($sql)){
 
 ?>
 <tr>
-<td><input type="checkbox" name="template[]" id="template" class="template" value="<?=$row['id']?>" /></td><td><a href="update_template.php?id=<?=$row['id']?>"><?=$row['name']?><?php if($row['gdefault']==1){ echo "(default)"; } ?><a/></td>
+<td><input type="checkbox" name="template[]" id="template" class="template" value="<?=$row['id']?>" /></td><td><a href="update_template.php?id=<?=$row['id']?>"><?=$row['name']?>jc if($row['gdefault']==1){ echo "(default)"; } ?><a/></td>
 </tr>
-<?php } ?>
+jc } ?>
 </tbody>
 </table>
 <p><input type="submit" name="delete" value="delete" /></p>

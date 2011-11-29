@@ -1,6 +1,6 @@
 <html>
 <head>
-<?php 
+jc 
 //load gecko library
 include_once('class/gecko.php');
 // load CKEditor
@@ -9,7 +9,7 @@ include_once('loadCKEditor.php');
 </head>
 <body>
 <h1>Template</h1>
-<?php
+jc
 
 $id = $_GET['id'];
 
@@ -32,7 +32,7 @@ while($row=mysql_fetch_array($sql)){
 
 <p><a href="set_as_default_template.php?template=<?=$row['id']?>">set as default template</a></p>
 
-<?php } ?>
+jc } ?>
 
 <p><a href="/admin/template.php">view templates</a></p>
 <p><a href="/admin/dashboard.php">main menu</a></p>

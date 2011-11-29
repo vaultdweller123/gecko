@@ -1,6 +1,6 @@
 <html>
 <head>
-<?php
+jc
 include_once("class/gecko.php");
 // load jQuery
 $gecko = new Gecko();

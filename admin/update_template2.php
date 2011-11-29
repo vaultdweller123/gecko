@@ -1,4 +1,4 @@
-<?php 
+jc 
 
 require_once("connect.php");
 

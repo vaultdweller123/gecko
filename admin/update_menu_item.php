@@ -17,7 +17,7 @@ jQuery(document).ready(function(){
 <body>
 
 <h1>Dynamic Menu</h1>
-<?php
+jc
 
 $menu = $_GET['menu'];
 $item = $_GET['menu_item'];
@@ -31,9 +31,9 @@ while($row=mysql_fetch_array($sql)){
 ?>
 <h1><?=$row['name']?></h1>
 <h2>tag: {gecko_menu_<?=($gecko_menu+$row['id'])?>}</h2>
-<?php } ?>
+jc } ?>
 <form name="form1" method="post" action="update_menu_item2.php">
-<?php
+jc
 
 
 
@@ -48,13 +48,13 @@ while($row5=mysql_fetch_array($sql5)){
 <tr><td>Item Base</td>
 <td>
 <select name="menu_item_base">
-<option value="-1" <?php if($row5['url']=='-1'){ echo "selected"; } ?>>root</option>
-<?php 
+<option value="-1" jc if($row5['url']=='-1'){ echo "selected"; } ?>>root</option>
+jc 
 $sql2 = mysql_query("SELECT * FROM menu_item");
 while($row2=mysql_fetch_array($sql2)){
  ?>
-<option value="<?=$row2['id']?>" <?php if($row5['base']==$row2['id']){ echo "selected"; } ?>><?=$row2['name']?></option>
-<?php } ?>
+<option value="<?=$row2['id']?>" jc if($row5['base']==$row2['id']){ echo "selected"; } ?>><?=$row2['name']?></option>
+jc } ?>
 </select>
 </td>
 </tr>
@@ -62,49 +62,49 @@ while($row2=mysql_fetch_array($sql2)){
 
 <tr><td colspan="2"><input type="submit" name="save" value="save" /><a style="text-decoration:none;" href="delete_menu_item.php?menu_item=<?=$item?>&menu=<?=$menu?>"><button type="button">delete</button></a></td></tr>
 </table>
-<?php } ?>
+jc } ?>
 
 </form>
 <h2>Preview</h2>
 <ul>
-<?php
+jc
 
 $sql3 = mysql_query("SELECT * FROM menu_item WHERE base='-1'");
 while($row3=mysql_fetch_array($sql3)){
 
 ?>
 <li><a href="/admin/update_menu_item.php?menu_item=<?=$row3['id']?>&menu=<?=$menu?>" ><?=$row3['name']?></a>
-<?php
+jc
 $sql4 = mysql_query("SELECT * FROM menu_item WHERE base!='-1' AND base='".$row3['id']."'");
 ?>
-<?php
+jc
 if(mysql_num_rows($sql4)>0){
 ?>
 <ul>
-<?php } ?>
+jc } ?>
 
-<?php 
+jc 
  
 
 while($row4=mysql_fetch_array($sql4)){
 ?>
 
-<?php
+jc
 if($row4['base']==$row3['id']){
 
 ?>
 <li><a href="/admin/update_menu_item.php?menu_item=<?=$row4['id']?>&menu=<?=$menu?>"><?=$row4['name']?></a></li>
 
-<?php } ?>
+jc } ?>
 
 
 
-<?php } ?>
-<?php
+jc } ?>
+jc
 if(mysql_num_rows($sql4)>0){
 ?>
 </ul>
-<?php } ?>
+jc } ?>
 
 
 </li>
@@ -113,7 +113,7 @@ if(mysql_num_rows($sql4)>0){
 
 
 
-<?php } ?>
+jc } ?>
 
 </ul>
 <p><a href="/admin/menu.php">view menus</a></p>

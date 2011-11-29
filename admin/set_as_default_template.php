@@ -1,4 +1,4 @@
-<?php
+jc
 
 $template = $_GET['template'];
 
