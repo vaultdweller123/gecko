@@ -18,12 +18,12 @@ jQuery(document).ready(function(){
 
 			
 				var page_name = jQuery("#page_name").val();
-				//var content = jQuery("#content").val();
+				var content = CKEDITOR.instances.content.getData();
 				var template = jQuery("#template").val();
 				var id = jQuery("#id").val();
 				
 			
-				var content = CKEDITOR.instances.content.getData();
+			
 				
 				if(page_name){
 				
