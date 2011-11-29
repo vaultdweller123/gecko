@@ -34,11 +34,11 @@ jQuery(document).ready(function(){
 			
 					jQuery.post("/admin/create_webpage2.php",{ page_name:page_name, content:content, template:template }, function(data){
 					
-						if(data=='success'){
-							alert('New Web Page Saved');
-							window.location='/admin/webpage.php'
-						}else{
+						if(data=='fail'){
 							alert('Fail');
+						}else{
+							//alert('New Web Page Saved');
+							window.location='/admin/update_webpage.php?id='+data+'&frm_crt=1';
 						}
 					
 					});

@@ -43,7 +43,7 @@ jQuery(document).ready(function(){
 				}else{
 				
 				
-				alert('Please enter webpage name');
+					alert('Please enter webpage name');
 				
 				}
 		
@@ -67,6 +67,13 @@ while($row=mysql_fetch_array($sql)){
 
 ?>
 <h1><?=$row['name']?><?php if($row['homepage']==1){ echo "(default)"; }  ?></h1>
+<?php
+if($_GET['frm_crt']){
+?>
+<div id="message" style="background-color:green;">New Web Page Saved!</div>
+<?php
+}
+?>
 <div id="message" style="background-color:green;"></div>
 
 <table>
