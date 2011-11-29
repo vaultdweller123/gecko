@@ -3,9 +3,9 @@
 <?php 
 // load gecko library
 include_once('class/gecko.php');
-// load CKEditor
-include_once('loadCKEditor.php');
 $gecko = new Gecko();
+// instantiate CKEditor, pass arguments = id,attr(comma separated),path
+echo $gecko->load_CKEditor("content","height:400");
 // load jQuery
 echo $gecko->load_jQuery();
  ?>
