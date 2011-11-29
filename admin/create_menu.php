@@ -13,6 +13,6 @@
 </form>
 
 <p><a href="/admin/menu.php">view menus</a></p>
-<p><a href="/admin/dashboard.php">main menu</a></p>
+<p><a href="/admin/dashboard.php">dashboard</a></p>
 </body>
 </html>

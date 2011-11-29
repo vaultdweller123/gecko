@@ -107,6 +107,6 @@ if(mysql_num_rows($sql4)>0){
 
 </ul>
 <p><a href="/admin/menu.php">view menus</a></p>
-<p><a href="/admin/dashboard.php">main menu</a></p>
+<p><a href="/admin/dashboard.php">dashboard</a></p>
 </body>
 </html>

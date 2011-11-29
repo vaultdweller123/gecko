@@ -71,6 +71,6 @@ jQuery(document).ready(function(){
 </table>
 
 <p><a href="/admin/template.php">view templates</a></p>
-<p><a href="/admin/dashboard.php">main menu</a></p>
+<p><a href="/admin/dashboard.php">dashboard</a></p>
 </body>
 </html>
