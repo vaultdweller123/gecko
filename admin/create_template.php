@@ -1,3 +1,8 @@
+<?php
+//prevent URL direct access - start
+session_start();
+if(isset($_SESSION['id'])){
+?>
 <html>
 <head>
 <?php 
@@ -61,7 +66,7 @@ jQuery(document).ready(function(){
 </script>
 </head>
 <body>
-<h1>Template</h1>
+<h1>Create Template</h1>
 
 <table>
 <tr><td>Template Name</td><td><input type="text" name="template_name" id="template_name" /></td></tr>
@@ -70,7 +75,14 @@ jQuery(document).ready(function(){
 <tr><td colspan="2" align="center"><input type="submit" id="save" name="save" value="save" /></td></tr>
 </table>
 
+<p><a href="/admin/create_template.php">create template</a></p>
 <p><a href="/admin/template.php">view templates</a></p>
 <p><a href="/admin/dashboard.php">dashboard</a></p>
 </body>
 </html>
+<?php
+//prevent URL direct access - end
+}else{
+echo "<div style='color:red'>FUCK YOU KA!</div>";
+}
+?>

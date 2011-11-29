@@ -1,3 +1,8 @@
+<?php
+//prevent URL direct access - start
+session_start();
+if(isset($_SESSION['id'])){
+?>
 <html>
 <head>
 <?php 
@@ -61,7 +66,7 @@ jQuery(document).ready(function(){
 });
 </script>
 <body>
-<h1>Web Pages</h1>
+<h1>Create Web Pages</h1>
 
 <table>
 <tr><td>page name</td><td><input type="text" name="page_name" id="page_name" /></td></tr>
@@ -92,8 +97,14 @@ while($row=mysql_fetch_array($sql)){
 <tr><td colspan="2" align="center"><input type="submit" name="save" id="save" value="save" /></td></tr>
 </table>
 
-
+<p><a href="/admin/create_webpage.php">create pages</a></p>
 <p><a href="/admin/webpage.php">view web pages</a></p>
 <p><a href="/admin/dashboard.php">dashboard</a></p>
 </body>
 </html>
+<?php
+//prevent URL direct access - end
+}else{
+echo "<div style='color:red'>FUCK YOU KA!</div>";
+}
+?>

@@ -1,3 +1,8 @@
+<?php
+//prevent URL direct access - start
+session_start();
+if(isset($_SESSION['id'])){
+?>
 <html>
 <head>
 <?php 
@@ -66,7 +71,7 @@ $sql = mysql_query("SELECT * FROM webpage WHERE id='".$id."'");
 while($row=mysql_fetch_array($sql)){
 
 ?>
-<h1><?=$row['name']?><?php if($row['homepage']==1){ echo "(default)"; }  ?></h1>
+<h1>Edit Web Page</h1>
 <?php
 if($_GET['frm_crt']){
 ?>
@@ -109,7 +114,14 @@ while($row2=mysql_fetch_array($sql2)){
 
 <?php } ?>
 
+<p><a href="/admin/create_webpage.php">create pages</a></p>
 <p><a href="/admin/webpage.php">view web pages</a></p>
 <p><a href="/admin/dashboard.php">dashboard</a></p>
 </body>
 </html>
+<?php
+//prevent URL direct access - end
+}else{
+echo "<div style='color:red'>FUCK YOU KA!</div>";
+}
+?>

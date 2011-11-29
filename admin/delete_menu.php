@@ -1,5 +1,9 @@
 <?php
 
+//prevent URL direct access - start
+session_start();
+if(isset($_SESSION['id'])){
+
 require_once("connect.php");
 
 $id = $_POST['menu'];
@@ -24,6 +28,12 @@ if($id){
 	echo "<script type='text/javascript'>alert('Select at least one to delete!');</script>";
 	echo "<script type='text/javascript'>window.location='/admin/menu.php'</script>";
 
+}
+
+
+//prevent URL direct access - end
+}else{
+echo "<div style='color:red'>FUCK YOU KA!</div>";
 }
 
 

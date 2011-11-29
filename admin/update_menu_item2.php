@@ -1,4 +1,7 @@
 <?php
+//prevent URL direct access - start
+session_start();
+if(isset($_SESSION['id'])){
 
 $id = $_POST['id'];
 $item_name = mysql_real_escape_string($_POST['menu_item_name']);
@@ -17,4 +20,8 @@ echo "<script type='text/javascript'>alert('Fail');</script>";
 echo "<script type='text/javascript'>window.location='/admin/update_menu.php'</script>";
 }
 
+//prevent URL direct access - end
+}else{
+echo "<div style='color:red'>FUCK YOU KA!</div>";
+}
 ?>

@@ -1,3 +1,8 @@
+<?php
+//prevent URL direct access - start
+session_start();
+if(isset($_SESSION['id'])){
+?>
 <html>
 <head>
 </head>
@@ -17,3 +22,9 @@
 </p>
 </body>
 </html>
+<?php
+//prevent URL direct access - end
+}else{
+echo "<div style='color:red'>FUCK YOU KA!</div>";
+}
+?>

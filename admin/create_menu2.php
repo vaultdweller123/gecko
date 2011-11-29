@@ -1,5 +1,9 @@
 <?php
 
+//prevent URL direct access - start
+session_start();
+if(isset($_SESSION['id'])){
+
 require_once("connect.php");
 
 $name = $_POST['menu_name'];
@@ -24,6 +28,9 @@ if($name){
 
 }
 
-
+//prevent URL direct access - end
+}else{
+echo "<div style='color:red'>FUCK YOU KA!</div>";
+}
 
 ?>

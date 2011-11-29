@@ -1,3 +1,9 @@
+<?php
+//prevent URL direct access - start
+session_start();
+if(isset($_SESSION['id'])){
+
+?>
 <html>
 <head>
 </head>
@@ -7,6 +13,7 @@
 <table>
 <tr><td>menu name</td><td><input type="text" name="menu_name" /></td></tr>
 <tr><td>menu ID</td><td><input type="text" name="menu_id" /></td></tr>
+<tr><td>menu class</td><td><input type="text" name="menu_id" /></td></tr>
 <tr><td colspan="2">&nbsp;</td></tr>
 <tr><td colspan="2" align="center"><input type="submit" name="save" value="save" /></td></tr>
 </table>
@@ -16,3 +23,9 @@
 <p><a href="/admin/dashboard.php">dashboard</a></p>
 </body>
 </html>
+<?php
+//prevent URL direct access - end
+}else{
+echo "<div style='color:red'>FUCK YOU KA!</div>";
+}
+?>

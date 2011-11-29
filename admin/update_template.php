@@ -1,3 +1,8 @@
+<?php
+//prevent URL direct access - start
+session_start();
+if(isset($_SESSION['id'])){
+?>
 <html>
 <head>
 <?php 
@@ -54,7 +59,7 @@ jQuery(document).ready(function(){
 </script>
 </head>
 <body>
-<h1>Template</h1>
+<h1>Edit Template</h1>
 <?php
 
 $id = $_GET['id'];
@@ -81,7 +86,14 @@ while($row=mysql_fetch_array($sql)){
 
 <?php } ?>
 
+<p><a href="/admin/create_template.php">create template</a></p>
 <p><a href="/admin/template.php">view templates</a></p>
 <p><a href="/admin/dashboard.php">dashboard</a></p>
 </body>
 </html>
+<?php
+//prevent URL direct access - end
+}else{
+echo "<div style='color:red'>FUCK YOU KA!</div>";
+}
+?>

@@ -1,5 +1,9 @@
 <?php
 
+//prevent URL direct access - start
+session_start();
+if(isset($_SESSION['id'])){
+
 include_once('connect.php');
 
 $temp = $_POST['template'];
@@ -18,8 +22,10 @@ $content = mysql_real_escape_string($_POST['content']);
 
 
 
-
-
+//prevent URL direct access - end
+}else{
+echo "<div style='color:red'>FUCK YOU KA!</div>";
+}
 
 
 ?>
