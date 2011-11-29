@@ -14,8 +14,7 @@ echo $gecko->load_CKEditor("content","height:400");
 // load jQuery
 echo $gecko->load_jQuery();
  ?>
-</head>
-<script type="text/javascript">
+ <script type="text/javascript">
 jQuery(document).ready(function(){
 
 
@@ -65,6 +64,7 @@ jQuery(document).ready(function(){
 
 });
 </script>
+</head>
 <body>
 <h1>Create Web Pages</h1>
 
