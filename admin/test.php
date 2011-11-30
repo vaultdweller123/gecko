@@ -39,22 +39,22 @@ jQuery(document).ready(function(){
 	</head>
 	<body>
 
-		<h1 id="head"><a style="color:#FFFFFF;text-decoration:none;" href="/admin/dashboard.php">Gecko</a></h1>
+		<h1 id="head">Gecko</h1>
 
 		<ul id="navigation">
-			<li><span><a href="/admin/webpage.php" class="active">Web Pages</a></span></li>
+			<li><span><a href="/admin/webpage.php">Web Pages</a></span></li>
 			<li><a href="/admin/template.php">Templates</a></li>
 			<li><a href="/admin/menu.php">Dynamic menu</a></li>
 		</ul>
 		
 		<div id="content" class="container_16 clearfix">
-			<div class="grid_11">
-				<h2 style="padding-left:22px;">Web Pages</h2>
+			<div class="grid_11" style="width:auto!important;" >
+				<h2>Web Pages</h2>
 				<form name="form1" method="post" action="delete_webpage.php">
 <table id="jtable">
 <thead>
 <tr>
-<th style="width:22px;"><input type="checkbox" name="chkall" id="chkall" style="width:auto!important;" /></th><th>Name</th>
+<th><input type="checkbox" name="chkall" id="chkall" style="width:auto!important;" /></th><th>Web Pages</th>
 </tr>
 </thead>
 <tbody>
@@ -69,24 +69,14 @@ while($row=mysql_fetch_array($sql)){
 
 ?>
 <tr>
-<td style="width:22px;"><input type="checkbox" name="webpage[]" id="webpage" class="webpage" value="<?=$row['id']?>" style="width:auto!important;" /></td><td><a href="update_webpage.php?id=<?=$row['id']?>"><?=$row['name']?><?php if($row['homepage']==1){ echo "(set as homepage)"; } ?><a/></td>
+<td><input type="checkbox" name="webpage[]" id="webpage" class="webpage" value="<?=$row['id']?>" style="width:auto!important;" /></td><td><a href="update_webpage.php?id=<?=$row['id']?>"><?=$row['name']?><?php if($row['homepage']==1){ echo "(set as homepage)"; } ?><a/></td>
 </tr>
 <?php } ?>
-<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-<tr><td>&nbsp;</td><td><input type="submit" name="delete" value="delete" /></td></tr>
 </tbody>
 </table>
+<p><input type="submit" name="delete" value="delete" /></p>
 </form>
 			</div>
-			
-				<div class="grid_5">
-				<h2 style="padding-left: 35px;">Action</h2>
-				<ul>
-					<li><a href="/admin/create_webpage.php">Create a Web Page</a></li>
-					<li><a href="/admin/dashboard.php">Dashboard</a></li>
-				</ul>
-			</div>
-			
 			
 		</div>
 		

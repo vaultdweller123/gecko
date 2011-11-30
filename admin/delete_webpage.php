@@ -29,7 +29,7 @@ if($id){
 }else{
 
 	echo "<script type='text/javascript'>alert('Select at least one to delete!');</script>";
-	echo "<script type='text/javascript'>window.location='/admin/template.php'</script>";
+	echo "<script type='text/javascript'>window.location='/admin/webpage.php'</script>";
 
 }
 

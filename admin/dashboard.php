@@ -20,7 +20,7 @@ if(isset($_SESSION['id'])){
 	</head>
 	<body>
 
-		<h1 id="head">Gecko</h1>
+		<h1 id="head"><a style="color:#FFFFFF;text-decoration:none;" href="/admin/dashboard.php">Gecko</a></h1>
 
 		<ul id="navigation">
 			<li><span><a href="/admin/webpage.php">Web Pages</a></span></li>
