@@ -119,7 +119,7 @@ while($row=mysql_fetch_array($sql)){
 </tr>
 <tr><td>content</td><td><textarea id="jcontent" name="content"></textarea></td></tr>
 <tr><td colspan="2">&nbsp;</td></tr>
-<tr><td>&nbsp;</td><input type="submit" name="save" id="save" value="save" /></td></tr>
+<tr><td>&nbsp;</td><td><input type="submit" name="save" id="save" value="save" /></td></tr>
 </table>
 			
 			</div>

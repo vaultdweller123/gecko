@@ -18,7 +18,13 @@ if(isset($_SESSION['id'])){
 		}
 		
 		</style>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+				<?php 
+// load gecko library
+include_once('class/gecko.php');
+$gecko = new Gecko();
+// load jQuery
+echo $gecko->load_jQuery();
+ ?>
 <script type="text/javascript">
 jQuery(document).ready(function(){
 
