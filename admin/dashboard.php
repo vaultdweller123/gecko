@@ -15,7 +15,7 @@ if(isset($_SESSION['id'])){
 <a href="/admin/template.php">templates</a>
 <p>
 <p>
-<a href="/admin/menu.php">view menu</a>
+<a href="/admin/menu.php">dynamic menu</a>
 </p>
 <p>
 <a href="/admin/logout.php">logout</a><br />
