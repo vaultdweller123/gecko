@@ -3,10 +3,29 @@
 session_start();
 if(isset($_SESSION['id'])){
 ?>
-<html>
-<head>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script type="text/javascript">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>Steal My Admin</title>
+		<link rel="stylesheet" href="css/960.css" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="css/template.css" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="css/colour.css" type="text/css" media="screen" charset="utf-8" />
+		<style type="text/css">
+		#navigation a{
+		text-decoration:none;
+		}
+		
+		</style>
+				<?php 
+// load gecko library
+include_once('class/gecko.php');
+$gecko = new Gecko();
+// load jQuery
+echo $gecko->load_jQuery();
+ ?>
+		<script type="text/javascript">
 jQuery(document).ready(function(){
 
 	jQuery("#chkall").click(function(){
@@ -23,16 +42,25 @@ jQuery(document).ready(function(){
 
 });
 </script>
-</head>
-<body>
-<h1>Menu</h1>
+	</head>
+	<body>
 
+		<h1 id="head"><a style="color:#FFFFFF;text-decoration:none;" href="/admin/dashboard.php">Gecko</a></h1>
 
-<form name="form1" method="post" action="delete_menu.php">
+		<ul id="navigation">
+			<li><span><a href="/admin/webpage.php">Web Pages</a></span></li>
+			<li><a href="/admin/template.php">Templates</a></li>
+			<li><a href="/admin/menu.php" class="active">Dynamic menu</a></li>
+		</ul>
+		
+		<div id="content" class="container_16 clearfix">
+			<div class="grid_11">
+				<h2 style="padding-left:22px;" style="padding-left:22px;">Menu</h2>
+				<form name="form1" method="post" action="delete_menu.php">
 <table>
 <thead>
 <tr>
-<th><input type="checkbox" name="chkall" id="chkall" /></th><th>Menu</th>
+<th style="width:22px;"><input type="checkbox" name="chkall" id="chkall" style="width:auto!important;"  /></th><th>Name</th>
 </tr>
 </thead>
 <tbody>
@@ -46,19 +74,33 @@ while($row=mysql_fetch_array($sql)){
 
 ?>
 <tr>
-<td><input type="checkbox" name="menu[]" id="menu" class="menu" value="<?=$row['id']?>" /></td><td><a href="update_menu.php?id=<?=$row['id']?>"><?=$row['name']?><a/></td>
+<td style="width:22px;"><input type="checkbox" name="menu[]" id="menu" class="menu" value="<?=$row['id']?>" style="width:auto!important;" /></td><td><a href="update_menu.php?id=<?=$row['id']?>"><?=$row['name']?><a/></td>
 </tr>
 <?php } ?>
+<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td><input type="submit" name="delete" value="delete" /></td></tr>
 </tbody>
 </table>
-<p><input type="submit" name="delete" value="delete" /></p>
 </form>
+			</div>
+			
+				<div class="grid_5">
+				<h2 style="padding-left: 35px;">Action</h2>
+				<ul>
+					<li><a href="/admin/create_menu.php">Create Dynamic Menu</a></li>
+					<li><a href="/admin/dashboard.php">Dashboard</a></li>
+				</ul>
+			</div>
+			
+			
+		</div>
+		
+		<div id="foot">
+					<a href="/admin/logout.php">Logout</a>
+		</div>
 
-
-<p><a href="/admin/create_menu.php">create dynamic menu</a></p>
-
-<p><a href="/admin/dashboard.php">dashboard</a></p>
-</body>
+		
+	</body>
 </html>
 <?php
 //prevent URL direct access - end

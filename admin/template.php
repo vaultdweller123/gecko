@@ -61,7 +61,7 @@ jQuery(document).ready(function(){
 <table>
 <thead>
 <tr>
-<th style="width:22px;"><input type="checkbox" name="chkall" id="chkall" style="width:auto!important;" /></th><th>Template</th>
+<th style="width:22px;"><input type="checkbox" name="chkall" id="chkall" style="width:auto!important;" /></th><th>Name</th>
 </tr>
 </thead>
 <tbody>
@@ -77,9 +77,10 @@ while($row=mysql_fetch_array($sql)){
 <td style="width:22px;"><input type="checkbox" name="template[]" id="template" class="template" value="<?=$row['id']?>" style="width:auto!important;" /></td><td><a href="update_template.php?id=<?=$row['id']?>"><?=$row['name']?><?php if($row['gdefault']==1){ echo "(default)"; } ?><a/></td>
 </tr>
 <?php } ?>
+<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td><input type="submit" name="delete" value="delete" /></td></tr>
 </tbody>
 </table>
-<p><input type="submit" name="delete" value="delete" /></p>
 </form>
 			</div>
 			
