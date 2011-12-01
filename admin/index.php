@@ -8,15 +8,22 @@
 		<!--<link rel="stylesheet" href="css/fluid.css" type="text/css" media="screen" charset="utf-8" />-->
 		<link rel="stylesheet" href="css/template.css" type="text/css" media="screen" charset="utf-8" />
 		<link rel="stylesheet" href="css/colour.css" type="text/css" media="screen" charset="utf-8" />
-		<?php
-include_once("class/gecko.php");
-// load jQuery
-$gecko = new Gecko();
-// parameter is path to jquery
-echo $gecko->load_JQuery();
-?>
+
+			<?php
+	// load jQuery
+	include_once("include/loadjQuery.php");
+	?>
+		
+
 <script type="text/javascript">
 jQuery(document).ready(function(){
+
+
+	jQuery('#date').datepicker();
+
+
+	jQuery("#frm_login").show("bounce");
+
 
 	// clicking the login button
 	jQuery("#login").click(function(){
@@ -24,17 +31,40 @@ jQuery(document).ready(function(){
 	var user = jQuery("#user").val();
 	var pass = jQuery("#pass").val();
 	
-		jQuery.post("login.php",{ user:user, pass:pass },function(data){
+	if(user!=""){
+	
+	
+		if(pass!=""){
 		
-			if(data=='login'){
-				window.location='/admin/dashboard.php';
-			}else if(data=='password incorrect'){
-				alert('Password incorrect!');
-			}else{
-				alert('Username doesn\'t exist!');
-			}
+			jQuery.post("login.php",{ user:user, pass:pass },function(data){
+		
+				if(data=='login'){
+					window.location='/admin/dashboard.php';
+				}else if(data=='password incorrect'){
+					alert('Password incorrect!');
+				}else{
+					alert('Username doesn\'t exist!');
+				}
 			
-		});
+			});
+		
+		}else{
+		
+			alert("Enter password!");
+		
+		}
+	
+	
+	
+	}else{
+	
+		alert("Enter username!")
+		
+	}	
+	
+	
+	
+
 	
 	
 	});
@@ -69,6 +99,8 @@ jQuery(document).ready(function(){
 	</head>
 	<body>
 		
+		<div id="frm_login">
+	
 					<h1 id="head" style="width:282px;text-align:center;margin-top:85px;">Gecko</h1>
 		
 		
@@ -78,6 +110,7 @@ jQuery(document).ready(function(){
 					<p>
 						Username: <input type="text" name="user" id="user" /><br />
 						Password: <input type="password" name="pass" id="pass" />
+			
 					</p>
 				</div>
 		
@@ -88,6 +121,8 @@ jQuery(document).ready(function(){
 					</p>
 				</div>
 				
+			</div>
+			
 			</div>
 		
 		

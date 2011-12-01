@@ -3,7 +3,7 @@
 session_start();
 if(isset($_SESSION['id'])){
 
-require_once("connect.php");
+require_once("include/connect.php");
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -21,11 +21,8 @@ require_once("connect.php");
 		}
 		</style>
 		<?php 
-// load gecko library
-include_once('class/gecko.php');
-$gecko = new Gecko();
 // load jQuery
-echo $gecko->load_jQuery();
+include_once("include/loadjQuery.php");
  ?>	
  <script type="text/javascript">
 function send_to_parent(url){

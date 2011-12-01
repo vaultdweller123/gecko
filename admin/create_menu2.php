@@ -4,7 +4,7 @@
 session_start();
 if(isset($_SESSION['id'])){
 
-require_once("connect.php");
+require_once("include/connect.php");
 
 $name = $_POST['menu_name'];
 $id = $_POST['menu_id'];

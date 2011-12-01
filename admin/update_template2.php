@@ -3,7 +3,7 @@
 session_start();
 if(isset($_SESSION['id'])){
 
-require_once("connect.php");
+require_once("include/connect.php");
 
 
 $id = $_POST['id'];

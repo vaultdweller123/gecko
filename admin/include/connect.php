@@ -2,7 +2,7 @@
 
 
 
-include_once('class/config.php');
+include_once('./class/config.php');
 
 // connect
 $conf = new Gconfig();

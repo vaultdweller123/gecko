@@ -19,13 +19,10 @@ if(isset($_SESSION['id'])){
 		
 		</style>
 		<?php 
-// load gecko library
-include_once('class/gecko.php');
-$gecko = new Gecko();
+// load jQuery
+include_once('include/loadjQuery.php');
 // instantiate CKEditor, pass arguments = id,attr(comma separated),path
 echo $gecko->load_CKEditor("jcontent","height:400,fullPage:true");
-// load jQuery
-echo $gecko->load_jQuery();
  ?>
  <script type="text/javascript">
 jQuery(document).ready(function(){

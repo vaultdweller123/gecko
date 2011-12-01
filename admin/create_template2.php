@@ -4,7 +4,7 @@
 session_start();
 if(isset($_SESSION['id'])){
 
-include_once('connect.php');
+include_once('include/connect.php');
 
 $name = $_POST['template_name'];
 $content = mysql_real_escape_string($_POST['content']);

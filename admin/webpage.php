@@ -19,11 +19,8 @@ if(isset($_SESSION['id'])){
 		
 		</style>
 				<?php 
-// load gecko library
-include_once('class/gecko.php');
-$gecko = new Gecko();
 // load jQuery
-echo $gecko->load_jQuery();
+include_once("include/loadjQuery.php");
  ?>
 <script type="text/javascript">
 jQuery(document).ready(function(){
@@ -62,7 +59,7 @@ jQuery(document).ready(function(){
 <tbody>
 <?php
 
-include_once('connect.php');
+include_once('include/connect.php');
 
 
 $sql = mysql_query("SELECT * FROM webpage");

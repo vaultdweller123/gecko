@@ -6,7 +6,7 @@ if(isset($_SESSION['id'])){
 
 $page = $_GET['page'];
 
-include_once('connect.php');
+include_once('include/connect.php');
 
 
 

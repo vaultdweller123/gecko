@@ -19,13 +19,10 @@ if(isset($_SESSION['id'])){
 		
 		</style>
 		<?php 
-//load gecko library
-include_once('class/gecko.php');
-$gecko = new Gecko();
+// load jQuery
+include_once("include/loadjQuery.php");
 // instantiate CKEditor, pass arguments = id,attr(comma separated),path
 echo $gecko->load_CKEditor("jcontent","height:400");
-// load jQuery
-echo $gecko->load_jQuery();
  ?>
 <script type="text/javascript">
 jQuery(document).ready(function(){
@@ -88,7 +85,7 @@ jQuery(document).ready(function(){
 
 $id = $_GET['id'];
 
-include_once('connect.php');
+include_once('include/connect.php');
 
 $sql = mysql_query("SELECT * FROM webpage WHERE id='".$id."'");
 

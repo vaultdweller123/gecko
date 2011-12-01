@@ -6,7 +6,7 @@ if(isset($_SESSION['id'])){
 
 $template = $_GET['template'];
 
-include_once('connect.php');
+include_once('include/connect.php');
 
 
 

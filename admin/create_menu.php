@@ -19,11 +19,8 @@ if(isset($_SESSION['id'])){
 		
 		</style>
 		<?php 
-// load gecko library
-include_once('class/gecko.php');
-$gecko = new Gecko();
 // load jQuery
-echo $gecko->load_jQuery();
+include_once('include/loadjQuery.php');
  ?>
  <script type="text/javascript">
 jQuery(document).ready(function(){
@@ -92,7 +89,7 @@ jQuery(document).ready(function(){
 <tr><td>menu ID</td><td><input type="text" name="menu_id" id="menu_id" style="width: 234px" /></td></tr>
 <tr><td>menu Class</td><td><input type="text" name="menu_class" id="menu_class" style="width: 234px" /></td></tr>
 <tr><td colspan="2">&nbsp;</td></tr>
-<tr><td colspan="2" align="center"><input type="submit" name="save" id="save" value="save" /></td></tr>
+<tr><td>&nbsp;</td><td><input type="submit" name="save" id="save" value="save" /></td></tr>
 </table>
 
 			

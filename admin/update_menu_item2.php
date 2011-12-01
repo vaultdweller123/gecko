@@ -9,7 +9,7 @@ $item_name = mysql_real_escape_string($_POST['menu_item_name']);
 $item_url = mysql_real_escape_string($_POST['menu_item_url']);
 $item_base = mysql_real_escape_string($_POST['menu_item_base']);
 
-require_once("connect.php");
+require_once("include/connect.php");
 
 $sql = mysql_query("UPDATE menu_item SET name='".$item_name."', url='".$item_url."', base='".$item_base."' WHERE id='".$id."'");
 
