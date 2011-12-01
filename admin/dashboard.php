@@ -17,6 +17,17 @@ if(isset($_SESSION['id'])){
 		text-decoration:none;
 		}
 		</style>
+		<?php
+		// load jQuery
+		include_once("include/loadjQuery.php");
+		?>
+		<script type="text/javascript">
+		jQuery(document).ready(function(){
+		
+		
+		
+		});
+		</script>
 	</head>
 	<body>
 
