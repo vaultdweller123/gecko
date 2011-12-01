@@ -14,7 +14,7 @@ $content = mysql_real_escape_string($_POST['content']);
 	$sql = mysql_query("INSERT INTO template VALUES('','".$name."','".$content."','')");
 
 	if($sql){
-		echo "success";
+		echo mysql_insert_id();
 	}else{
 		echo "fail";
 	}

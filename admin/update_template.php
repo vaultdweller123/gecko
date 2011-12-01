@@ -85,6 +85,15 @@ jQuery(document).ready(function(){
 			<div class="grid_11" style="width: 746px !important;">
 
 			<h1>Edit Template</h1>
+			
+			<?php
+if($_GET['frm_crt']){
+?>
+<div id="message" style="background-color:green;">New Template Saved!</div>
+<?php
+}
+?>
+			
 			<?php
 
 $id = $_GET['id'];

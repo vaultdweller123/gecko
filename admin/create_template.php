@@ -51,11 +51,12 @@ jQuery(document).ready(function(){
 			
 					jQuery.post("/admin/create_template2.php",{ template_name:template_name, content:content }, function(data){
 					
-						if(data=='success'){
-							alert('New Template Saved');
-							window.location='/admin/template.php'
-						}else{
+						if(data=='fail'){
 							alert('Fail');
+						}else{
+						alert('New Template Saved');
+							window.location='/admin/update_template.php?id='+data+'&frm_crt=1';
+							
 						}
 					
 					});

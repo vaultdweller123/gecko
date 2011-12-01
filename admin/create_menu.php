@@ -18,7 +18,62 @@ if(isset($_SESSION['id'])){
 		}
 		
 		</style>
+		<?php 
+// load gecko library
+include_once('class/gecko.php');
+$gecko = new Gecko();
+// load jQuery
+echo $gecko->load_jQuery();
+ ?>
+ <script type="text/javascript">
+jQuery(document).ready(function(){
+
+
+
+			
+	
+			
+	
+			jQuery("#save").click(function(){
+			
+			
+				var menu_name= jQuery("#menu_name").val();
+				var menu_id = jQuery("#menu_id").val();
+				var menu_class = jQuery("#menu_class").val();
+				
+			
+
+			
+			
+				if(menu_name){
+			
+					jQuery.post("/admin/create_menu2.php",{ menu_name:menu_name, menu_id:menu_id, menu_class:menu_class }, function(data){
+					
+						if(data=='fail'){
+							alert('Fail');
+						}else{
+							window.location='/admin/update_menu.php?id='+data+'&frm_crt=1';
+						}
+					
+					});
+					
+					
+				}else{
 		
+					alert('Please enter menu name');
+		
+				}
+					
+			
+			});
+		
+		
+		
+
+	
+
+});
+</script>
 	</head>
 	<body>
 
@@ -35,14 +90,15 @@ if(isset($_SESSION['id'])){
 
 			<h1>Create Dynamic Menu</h1>
 			
-<form method="post" action="/admin/create_menu2.php">
+
 <table>
-<tr><td>menu name</td><td><input type="text" name="menu_name" style="width: 234px" /></td></tr>
-<tr><td>menu ID</td><td><input type="text" name="menu_id" style="width: 234px" /></td></tr>
+<tr><td>menu name</td><td><input type="text" name="menu_name" id="menu_name" style="width: 234px" /></td></tr>
+<tr><td>menu ID</td><td><input type="text" name="menu_id" id="menu_id" style="width: 234px" /></td></tr>
+<tr><td>menu Class</td><td><input type="text" name="menu_class" id="menu_class" style="width: 234px" /></td></tr>
 <tr><td colspan="2">&nbsp;</td></tr>
-<tr><td colspan="2" align="center"><input type="submit" name="save" value="save" /></td></tr>
+<tr><td colspan="2" align="center"><input type="submit" name="save" id="save" value="save" /></td></tr>
 </table>
-</form>
+
 			
 			</div>
 			

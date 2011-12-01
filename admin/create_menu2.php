@@ -8,25 +8,19 @@ require_once("connect.php");
 
 $name = $_POST['menu_name'];
 $id = $_POST['menu_id'];
+$class = $_POST['menu_class'];
 
-if($name){
 
-	$sql = mysql_query("INSERT INTO menu VALUES ('','".$name."','".$id."','')");
+
+	$sql = mysql_query("INSERT INTO menu VALUES ('','".$name."','".$id."','".$class."')");
 
 	if($sql){
-	echo "<script type='text/javascript'>alert('New Menu Saved');</script>";
-	echo "<script type='text/javascript'>window.location='/admin/menu.php'</script>";
+	echo mysql_insert_id();
 	}else{
-	echo "<script type='text/javascript'>alert('Fail');</script>";
-	echo "<script type='text/javascript'>window.location='/admin/create_menu.php'</script>";
+	echo "fail";
 	}
 
-}else{
 
-	echo "<script type='text/javascript'>alert('Please enter menu name!');</script>";
-	echo "<script type='text/javascript'>window.location='/admin/create_menu.php'</script>";
-
-}
 
 //prevent URL direct access - end
 }else{

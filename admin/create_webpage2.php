@@ -15,7 +15,7 @@ $content = mysql_real_escape_string($_POST['content']);
 	$sql = mysql_query("INSERT INTO webpage VALUES('','".$name."','".$content."','".$temp."','0')");
 
 	if($sql){
-	echo mysql_insert_id();;
+	echo mysql_insert_id();
 	}else{
 	echo "fail";
 	}	

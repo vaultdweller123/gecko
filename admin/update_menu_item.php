@@ -106,13 +106,13 @@ while($row2=mysql_fetch_array($sql2)){
 <ul>
 <?php
 
-$sql3 = mysql_query("SELECT * FROM menu_item WHERE base='-1'");
+$sql3 = mysql_query("SELECT * FROM menu_item WHERE base='-1' AND menu='".$menu."'");
 while($row3=mysql_fetch_array($sql3)){
 
 ?>
 <li><a href="/admin/update_menu_item.php?menu_item=<?=$row3['id']?>&menu=<?=$menu?>" ><?=$row3['name']?></a>
 <?php
-$sql4 = mysql_query("SELECT * FROM menu_item WHERE base!='-1' AND base='".$row3['id']."'");
+$sql4 = mysql_query("SELECT * FROM menu_item WHERE base!='-1' AND base='".$row3['id']."' AND menu='".$menu."'");
 ?>
 <?php
 if(mysql_num_rows($sql4)>0){
