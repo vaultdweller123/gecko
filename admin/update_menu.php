@@ -22,6 +22,10 @@ if(isset($_SESSION['id'])){
 // load jQuery
 include_once("include/loadjQuery.php");
  ?>
+ 	<?php
+	// load content slide effects
+	include_once("include/slide_effects.php");
+	?>
  <script type="text/javascript">
 jQuery(document).ready(function(){
 

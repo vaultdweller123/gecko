@@ -13,15 +13,16 @@
 	// load jQuery
 	include_once("include/loadjQuery.php");
 	?>
+
 		
 
 <script type="text/javascript">
 jQuery(document).ready(function(){
 
 
-	jQuery('#date').datepicker();
+	
 
-
+	// login form bounce effect
 	jQuery("#frm_login").show("bounce");
 
 

@@ -21,13 +21,10 @@ if(isset($_SESSION['id'])){
 		// load jQuery
 		include_once("include/loadjQuery.php");
 		?>
-		<script type="text/javascript">
-		jQuery(document).ready(function(){
-		
-		
-		
-		});
-		</script>
+	<?php
+	// load content slide effects
+	include_once("include/slide_effects.php");
+	?>
 	</head>
 	<body>
 
@@ -35,7 +32,7 @@ if(isset($_SESSION['id'])){
 
 	<?php require_once("include/menu.php"); ?>
 		
-		<div id="content" class="container_16 clearfix">
+		<div id="content" style="display:none;" class="container_16 clearfix">
 			<div class="grid_11" style="width:auto!important;" >
 				<h2>About</h2>
 				<p>Welcome to our 1st ever kick-ass CMS</p>

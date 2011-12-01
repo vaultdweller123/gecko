@@ -21,9 +21,14 @@ if(isset($_SESSION['id'])){
 		<?php 
 // load jQuery
 include_once("include/loadjQuery.php");
+
+	// load content slide effects
+	include_once("include/slide_effects.php");
+
 // instantiate CKEditor, pass arguments = id,attr(comma separated),path
 echo $gecko->load_CKEditor("jcontent","height:400,fullPage:true");
  ?>
+ 
  <script type="text/javascript">
 jQuery(document).ready(function(){
 

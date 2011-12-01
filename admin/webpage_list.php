@@ -24,6 +24,10 @@ require_once("include/connect.php");
 // load jQuery
 include_once("include/loadjQuery.php");
  ?>	
+ 	<?php
+	// load content slide effects
+	include_once("include/slide_effects.php");
+	?>
  <script type="text/javascript">
 function send_to_parent(url){
 		window.opener.document.form1.menu_item_url.value = "index.php?page="+url;
