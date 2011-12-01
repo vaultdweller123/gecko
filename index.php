@@ -4,39 +4,69 @@ $page = $_GET['page'];
 mysql_connect("localhost","root","");
 mysql_select_db("gecko");
 
+// with page
 if($page){
 
 					$sql = mysql_query("SELECT w.temp_id, t.content AS template_cont, w.content AS webpage_cont FROM webpage AS w left join template AS t ON w.temp_id = t.id WHERE w.id='".$page."'");
 
 					while($row = mysql_fetch_array($sql)){
 
+							// webpage
 							$xweb = $row['webpage_cont'];
+							// template
 							$xtemp = $row['template_cont'];
+								// -1 for default template
 							$flag = $row['temp_id'];
 						
 				
-
-						if($xtemp==null&&$flag!='-1'){
+						// no selected template, either use default or none at all
+						if($xtemp==null){
 						
-							//menu
-							$menustart = strpos($xtemp,"{gecko_menu");
-							$menustr = substr($xtemp,$menustart,17);
-							$gecko=explode("_",$menustr);
-							require_once("admin/class/menu_layout.php");
+						
+						
+							// uses default template
+							if($flag==-1){
 							
-							$gmenu = new Gmenu();
-							$menu_layout = $gmenu->layout($gecko);
+							
+							
+								// with template and using default template
+								$deftemp = mysql_query("SELECT * FROM template WHERE gdefault=1");
+								while($deftemprow=mysql_fetch_array($deftemp)){
+								
+									$xtemp = $deftemprow['content'];
+									$menustart = strpos($xtemp,"{gecko_menu");
+									$menustr = substr($xtemp,$menustart,17);
+									$gecko=explode("_",$menustr);
+									require_once("admin/class/menu_layout.php");
+									
+									$gmenu = new Gmenu();
+									$menu_layout = $gmenu->layout($gecko);
+									
+								}
+							
+							
+								if($menustart==true){
+									$output1 = str_replace($menustr,$menu_layout,$xtemp);
+									$output2 = str_replace("{gecko_content}",$xweb,$output1);
+								}else{
+									$output2 = str_replace("{gecko_content}",$xweb,$xtemp);
+								}
+								
+								// no template at all
+							}else{
+							
+								$output2 = $xweb;
+							}
 
-							$output2 = $xweb;
+						
 		
 						
 						}else{
 						
-						
-							$deftemp = mysql_query("SELECT * FROM template WHERE gdefault=1");
-							while($deftemprow=mysql_fetch_array($deftemp)){
+					
 							
-								$xtemp = $deftemprow['content'];
+								// with template
+								
 								$menustart = strpos($xtemp,"{gecko_menu");
 								$menustr = substr($xtemp,$menustart,17);
 								$gecko=explode("_",$menustr);
@@ -44,26 +74,31 @@ if($page){
 								
 								$gmenu = new Gmenu();
 								$menu_layout = $gmenu->layout($gecko);
+							
+							
+								if($menustart==true){
+									$output1 = str_replace($menustr,$menu_layout,$xtemp);
+									$output2 = str_replace("{gecko_content}",$xweb,$output1);
+								}else{
+									$output2 = str_replace("{gecko_content}",$xweb,$xtemp);
+								}
 								
-							}
+							
+							
 						
+					
+					
 						
-							if($menustart==true){
-								$output1 = str_replace($menustr,$menu_layout,$xtemp);
-								$output2 = str_replace("{gecko_content}",$xweb,$output1);
-							}else{
-								$output2 = str_replace("{gecko_content}",$xweb,$xtemp);
-							}
 						
 						}
-						
+				
 						echo $output2;
-						
 
 						
 					}
 
 
+// no page
 }else{
 
 
