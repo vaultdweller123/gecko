@@ -22,8 +22,6 @@ if(isset($_SESSION['id'])){
 //load gecko library
 include_once('class/gecko.php');
 $gecko = new Gecko();
-// instantiate CKEditor, pass arguments = id,attr(comma separated),path
-echo $gecko->load_CKEditor("jcontent","height:400,fullPage:true");
 // load jQuery
 echo $gecko->load_jQuery();
  ?>
@@ -46,8 +44,8 @@ jQuery(document).ready(function(){
 
 		<ul id="navigation">
 			<li><span><a href="/admin/webpage.php">Web Pages</a></span></li>
-			<li><a href="/admin/template.php" class="active">Templates</a></li>
-			<li><a href="/admin/menu.php">Dynamic menu</a></li>
+			<li><a href="/admin/template.php" >Templates</a></li>
+			<li><a href="/admin/menu.php" class="active">Dynamic menu</a></li>
 		</ul>
 		
 		<div id="content" class="container_16 clearfix">
@@ -150,6 +148,7 @@ if(mysql_num_rows($sql4)>0){
 				<div class="grid_5" style="width:164px !important;">
 				<h2 style="padding-left: 35px;">Action</h2>
 				<ul>
+					<li><a href="/admin/create_menu.php">Create Dynamic Menu</a></li>
 					<li><a href="/admin/menu.php">View Menus</a></li>
 					<li><a href="/admin/dashboard.php">Dashboard</a></li>
 					

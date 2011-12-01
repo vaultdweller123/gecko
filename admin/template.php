@@ -24,8 +24,7 @@ include_once('class/gecko.php');
 $gecko = new Gecko();
 // load jQuery
 echo $gecko->load_jQuery();
- ?>
-		
+ ?>	
 <script type="text/javascript">
 jQuery(document).ready(function(){
 

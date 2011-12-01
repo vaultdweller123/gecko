@@ -1,5 +1,4 @@
 <?php
-
 //prevent URL direct access - start
 session_start();
 if(isset($_SESSION['id'])){
@@ -7,19 +6,44 @@ if(isset($_SESSION['id'])){
 require_once("connect.php");
 
 ?>
-<html>
-<head>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script type="text/javascript">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>Steal My Admin</title>
+		<link rel="stylesheet" href="css/960.css" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="css/template.css" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="css/colour.css" type="text/css" media="screen" charset="utf-8" />
+		<style type="text/css">
+		#navigation a{
+		text-decoration:none;
+		}
+		</style>
+		<?php 
+// load gecko library
+include_once('class/gecko.php');
+$gecko = new Gecko();
+// load jQuery
+echo $gecko->load_jQuery();
+ ?>	
+ <script type="text/javascript">
 function send_to_parent(url){
 		window.opener.document.form1.menu_item_url.value = "index.php?page="+url;
 		self.close();
 	}
 </script>
-</head>
-<body>
-<h1>Web Pages</h1>
-<ul>
+	</head>
+	<body>
+
+		<h1 id="head">Gecko</h1>
+
+		
+		
+		<div id="content" class="container_16 clearfix">
+			<div class="grid_11" style="width:auto!important;" >
+				<h1>Web Pages</h1>
+				<ul>
 <?php 
 $sql = mysql_query("SELECT * FROM webpage");
 while($row=mysql_fetch_array($sql)){
@@ -27,7 +51,14 @@ while($row=mysql_fetch_array($sql)){
 <li><a href="javascript:void(0);" onclick="send_to_parent(<?=$row['id']?>)"><?=$row['name']?></a></li>
 <?php } ?>
 </ul>
-</body>
+			
+			</div>
+			
+		</div>
+		
+		
+		
+	</body>
 </html>
 <?php
 //prevent URL direct access - end

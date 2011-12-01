@@ -26,8 +26,8 @@ if(isset($_SESSION['id'])){
 
 		<ul id="navigation">
 			<li><span><a href="/admin/webpage.php">Web Pages</a></span></li>
-			<li><a href="/admin/template.php" class="active">Templates</a></li>
-			<li><a href="/admin/menu.php">Dynamic menu</a></li>
+			<li><a href="/admin/template.php">Templates</a></li>
+			<li><a href="/admin/menu.php" class="active">Dynamic menu</a></li>
 		</ul>
 		
 		<div id="content" class="container_16 clearfix">

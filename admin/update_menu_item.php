@@ -3,10 +3,29 @@
 session_start();
 if(isset($_SESSION['id'])){
 ?>
-<html>
-<head>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script type="text/javascript">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>Steal My Admin</title>
+		<link rel="stylesheet" href="css/960.css" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="css/template.css" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="css/colour.css" type="text/css" media="screen" charset="utf-8" />
+		<style type="text/css">
+		#navigation a{
+		text-decoration:none;
+		}
+		
+		</style>
+		<?php 
+//load gecko library
+include_once('class/gecko.php');
+$gecko = new Gecko();
+// load jQuery
+echo $gecko->load_jQuery();
+ ?>
+ <script type="text/javascript">
 jQuery(document).ready(function(){
 
 	jQuery("#menu_item_url").click(function(){
@@ -18,11 +37,23 @@ jQuery(document).ready(function(){
 
 });
 </script>
-</head>
-<body>
+	</head>
+	<body>
 
-<h1>Dynamic Menu</h1>
-<?php
+		<h1 id="head"><a style="color:#FFFFFF;text-decoration:none;" href="/admin/dashboard.php">Gecko</a></h1>
+
+		<ul id="navigation">
+			<li><span><a href="/admin/webpage.php">Web Pages</a></span></li>
+			<li><a href="/admin/template.php" >Templates</a></li>
+			<li><a href="/admin/menu.php" class="active">Dynamic menu</a></li>
+		</ul>
+		
+		<div id="content" class="container_16 clearfix">
+			<div class="grid_11" style="width: 746px !important;">
+
+			<h1>Edit Menu Item</h1>
+			
+			<?php
 
 $menu = $_GET['menu'];
 $item = $_GET['menu_item'];
@@ -46,13 +77,13 @@ $sql5 = mysql_query("SELECT * FROM menu_item WHERE id='".$item."'");
 while($row5=mysql_fetch_array($sql5)){
 
 ?>
-<table>
+<table style="width:auto;">
 
-<tr><td>Item Name</td><td><input type="text" name="menu_item_name" value="<?=$row5['name']?>" /></td></tr>
-<tr><td>Item URL</td><td><input type="text" name="menu_item_url" id="menu_item_url" value="<?=$row5['url']?>" /></td></tr>
+<tr><td>Item Name</td><td><input type="text" name="menu_item_name" value="<?=$row5['name']?>" style="width: 234px" /></td></tr>
+<tr><td>Item URL</td><td><input type="text" name="menu_item_url" id="menu_item_url" value="<?=$row5['url']?>" style="width: 234px" /></td></tr>
 <tr><td>Item Base</td>
 <td>
-<select name="menu_item_base">
+<select name="menu_item_base" style="width: auto;">
 <option value="-1" <?php if($row5['url']=='-1'){ echo "selected"; } ?>>root</option>
 <?php 
 $sql2 = mysql_query("SELECT * FROM menu_item");
@@ -64,6 +95,7 @@ while($row2=mysql_fetch_array($sql2)){
 </td>
 </tr>
 <tr><td>&nbsp;<input type="hidden" name="id" value="<?=$item?>" /></td></tr>
+<tr><td>&nbsp;<input type="hidden" name="base_menu" value="<?=$menu?>" /></td></tr>
 
 <tr><td colspan="2"><input type="submit" name="save" value="save" /><a style="text-decoration:none;" href="delete_menu_item.php?menu_item=<?=$item?>&menu=<?=$menu?>"><button type="button">delete</button></a></td></tr>
 </table>
@@ -121,9 +153,28 @@ if(mysql_num_rows($sql4)>0){
 <?php } ?>
 
 </ul>
-<p><a href="/admin/menu.php">view menus</a></p>
-<p><a href="/admin/dashboard.php">dashboard</a></p>
-</body>
+			
+			</div>
+			
+				<div class="grid_5" style="width:164px !important;">
+				<h2 style="padding-left: 35px;">Action</h2>
+				<ul>
+					<li><a href="/admin/create_menu.php">Create Dynamic Menu</a></li>
+					<li><a href="/admin/menu.php">View Menus</a></li>
+					<li><a href="/admin/dashboard.php">Dashboard</a></li>
+					
+				</ul>
+			</div>
+			
+			
+		</div>
+		
+		<div id="foot">
+					<a href="/admin/logout.php">Logout</a>
+		</div>
+
+		
+	</body>
 </html>
 <?php
 //prevent URL direct access - end
