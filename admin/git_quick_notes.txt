@@ -1,0 +1,8 @@
+---------- GIT quick notes ----------
+
+1.) replace other branch to master
+
+		git checkout other_branch
+		git merge -s ours master
+		git checkout master
+		git merge other_branch
