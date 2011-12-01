@@ -22,18 +22,14 @@ if(isset($_SESSION['id'])){
 
 		<h1 id="head"><a style="color:#FFFFFF;text-decoration:none;" href="/admin/dashboard.php">Gecko</a></h1>
 
-		<ul id="navigation">
-			<li><span><a href="/admin/webpage.php">Web Pages</a></span></li>
-			<li><a href="/admin/template.php">Templates</a></li>
-			<li><a href="/admin/menu.php">Dynamic menu</a></li>
-		</ul>
+	<?php require_once("include/menu.php"); ?>
 		
 		<div id="content" class="container_16 clearfix">
 			<div class="grid_11" style="width:auto!important;" >
 				<h2>About</h2>
-				<p>Welcome to our 1st ever kick ass CMS</p>
+				<p>Welcome to our 1st ever kick-ass CMS</p>
 				<h3>Credits</h3>
-				<p>I would like to thank TGG dota boys for the great support</p>
+				<p>I would like to thank the TGG dota boys for the great support</p>
 			</div>
 			
 		</div>

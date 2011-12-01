@@ -79,11 +79,7 @@ jQuery(document).ready(function(){
 
 		<h1 id="head"><a style="color:#FFFFFF;text-decoration:none;" href="/admin/dashboard.php">Gecko</a></h1>
 
-		<ul id="navigation">
-			<li><span><a href="/admin/webpage.php" class="active">Web Pages</a></span></li>
-			<li><a href="/admin/template.php">Templates</a></li>
-			<li><a href="/admin/menu.php">Dynamic menu</a></li>
-		</ul>
+		<?php require_once("include/menu.php"); ?>
 		
 		<div id="content" class="container_16 clearfix">
 			<div class="grid_11" style="width: 746px !important;">
