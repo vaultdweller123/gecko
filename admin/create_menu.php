@@ -60,8 +60,16 @@ jQuery(document).ready(function(){
 					
 					
 				}else{
+				
+				
+					jQuery("#jalert1").dialog({
+												autoOpen: false,
+												show: "blind",
+												hide: "explode"
+											});
+					jQuery("#jalert1").dialog("open");
 		
-					alert('Please enter menu name');
+				
 		
 				}
 					
@@ -77,6 +85,8 @@ jQuery(document).ready(function(){
 </script>
 	</head>
 	<body>
+	
+		<div id="jalert1" title="gecko" style="display:none;">Please enter menu name</div>
 
 		<h1 id="head"><a style="color:#FFFFFF;text-decoration:none;" href="/admin/dashboard.php">Gecko</a></h1>
 

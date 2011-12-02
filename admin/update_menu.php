@@ -75,7 +75,7 @@ Tag: {gecko_menu_<?=($gecko_menu+$row['id'])?>}</h2>
 <select name="menu_item_base" style="width: auto;">
 <option value="-1">root</option>
 <?php 
-$sql2 = mysql_query("SELECT * FROM menu_item");
+$sql2 = mysql_query("SELECT * FROM menu_item WHERE menu='".$id."'");
 while($row2=mysql_fetch_array($sql2)){
  ?>
 <option value="<?=$row2['id']?>"><?=$row2['name']?></option>

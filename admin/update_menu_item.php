@@ -83,7 +83,7 @@ while($row5=mysql_fetch_array($sql5)){
 <select name="menu_item_base" style="width: auto;">
 <option value="-1" <?php if($row5['url']=='-1'){ echo "selected"; } ?>>root</option>
 <?php 
-$sql2 = mysql_query("SELECT * FROM menu_item");
+$sql2 = mysql_query("SELECT * FROM menu_item WHERE menu='".$menu."'");
 while($row2=mysql_fetch_array($sql2)){
  ?>
 <option value="<?=$row2['id']?>" <?php if($row5['base']==$row2['id']){ echo "selected"; } ?>><?=$row2['name']?></option>
