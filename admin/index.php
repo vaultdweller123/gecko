@@ -42,16 +42,31 @@ jQuery(document).ready(function(){
 				if(data=='login'){
 					window.location='/admin/dashboard.php';
 				}else if(data=='password incorrect'){
-					alert('Password incorrect!');
+					jQuery("#jalert2").dialog({
+							autoOpen: false,
+							show: "blind",
+							hide: "explode"
+						});
+						jQuery("#jalert2").dialog("open");
 				}else{
-					alert('Username doesn\'t exist!');
+					jQuery("#jalert1").dialog({
+							autoOpen: false,
+							show: "blind",
+							hide: "explode"
+						});
+						jQuery("#jalert1").dialog("open");
 				}
 			
 			});
 		
 		}else{
 		
-			alert("Enter password!");
+			jQuery("#jalert4").dialog({
+							autoOpen: false,
+							show: "blind",
+							hide: "explode"
+						});
+						jQuery("#jalert4").dialog("open");
 		
 		}
 	
@@ -59,7 +74,12 @@ jQuery(document).ready(function(){
 	
 	}else{
 	
-		alert("Enter username!")
+		jQuery("#jalert3").dialog({
+							autoOpen: false,
+							show: "blind",
+							hide: "explode"
+						});
+						jQuery("#jalert3").dialog("open");
 		
 	}	
 	
@@ -76,19 +96,58 @@ jQuery(document).ready(function(){
 			if(e.which == 13){
     
 				var user = jQuery("#user").val();
-				var pass = jQuery("#pass").val();
+	var pass = jQuery("#pass").val();
+	
+	if(user!=""){
+	
+	
+		if(pass!=""){
 		
-				jQuery.post("login.php",{ user:user, pass:pass },function(data){
-				
-					if(data=='login'){
-						window.location='/admin/dashboard.php';
-					}else if(data=='password incorrect'){
-						alert('Password incorrect!');
-					}else{
-						alert('Username doesn\'t exist!');
-					}
-					
-				});
+			jQuery.post("login.php",{ user:user, pass:pass },function(data){
+		
+				if(data=='login'){
+					window.location='/admin/dashboard.php';
+				}else if(data=='password incorrect'){
+					jQuery("#jalert2").dialog({
+							autoOpen: false,
+							show: "blind",
+							hide: "explode"
+						});
+						jQuery("#jalert2").dialog("open");
+				}else{
+					jQuery("#jalert1").dialog({
+							autoOpen: false,
+							show: "blind",
+							hide: "explode"
+						});
+						jQuery("#jalert1").dialog("open");
+				}
+			
+			});
+		
+		}else{
+		
+			jQuery("#jalert4").dialog({
+							autoOpen: false,
+							show: "blind",
+							hide: "explode"
+						});
+						jQuery("#jalert4").dialog("open");
+		
+		}
+	
+	
+	
+	}else{
+	
+		jQuery("#jalert3").dialog({
+							autoOpen: false,
+							show: "blind",
+							hide: "explode"
+						});
+						jQuery("#jalert3").dialog("open");
+		
+	}	
 	
        }
       });
@@ -99,6 +158,13 @@ jQuery(document).ready(function(){
 </script>
 	</head>
 	<body>
+	
+		<div id="jalert1" title="gecko" style="display:none;">Username does not exist!</div>
+		<div id="jalert2" title="gecko" style="display:none;">Password Incorrect!</div>
+		<div id="jalert3" title="gecko" style="display:none;">Enter username!</div>
+		<div id="jalert4" title="gecko" style="display:none;">Enter password!</div>
+		
+		
 		
 		<div id="frm_login">
 	
