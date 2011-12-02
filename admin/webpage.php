@@ -8,7 +8,7 @@ if(isset($_SESSION['id'])){
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<title>Steal My Admin</title>
+		<title>Gecko</title>
 		<link rel="stylesheet" href="css/960.css" type="text/css" media="screen" charset="utf-8" />
 		<link rel="stylesheet" href="css/template.css" type="text/css" media="screen" charset="utf-8" />
 		<link rel="stylesheet" href="css/colour.css" type="text/css" media="screen" charset="utf-8" />
@@ -39,12 +39,108 @@ jQuery(document).ready(function(){
 		}
 		
 
-});
+	});
+	
+	
+	jQuery("#delete").click(function(){
+			
+			
+			
+				var chk = new Array();
+				var i = 0;
+				jQuery("input:checked").each(function(){
+
+				chk[i] = jQuery(this).val();
+				i++;
+
+				});
+				
+			
+			
+			
+				if(chk!=""){
+				
+				jQuery("#jalert1").dialog( "destroy" );
+				jQuery("#jalert1").dialog({
+							buttons:{
+								"yes": function() {
+									jQuery.post("/admin/delete_webpage.php",{ webpage:chk }, function(data){
+									
+									
+										if(data=="success"){
+										
+											jQuery("input:checked").parent().parent().remove();
+													jQuery("#jalert1").dialog({
+										
+													autoOpen: false,
+													hide: "explode"
+										
+											});
+											jQuery("#jalert1").dialog( "close" );
+										
+										}else{
+										
+											jQuery("#jalert2").dialog({
+												autoOpen: false,
+												show: "blind",
+												hide: "explode"
+											});
+											jQuery("#jalert2").dialog("open");
+										
+										}
+									
+											
+										});
+										
+										
+												
+										
+								},
+								"no": function() {
+									jQuery( this ).dialog({
+									
+												autoOpen: false,
+												hide: "explode"
+									
+									});
+									jQuery( this ).dialog("close");
+								}
+								
+							}
+								
+								
+							
+						});
+						jQuery("#jalert1").dialog("open");			
+									
+							
+			
+					
+					
+					
+				}else{
+		
+					jQuery("#jalert3").dialog({
+												autoOpen: false,
+												show: "blind",
+												hide: "explode"
+											});
+											jQuery("#jalert3").dialog("open");
+		
+				}
+					
+			
+			});
+	
 
 });
 </script>
 	</head>
 	<body>
+	
+	<div id="jalert1" title="gecko" style="display:none;">Are you sure you want to delete?</div>
+	<div id="jalert2" title="gecko" style="display:none;">Fail!</div>
+	<div id="jalert3" title="gecko" style="display:none;">Select at least one item to delete</div>
 
 		<h1 id="head"><a style="color:#FFFFFF;text-decoration:none;" href="/admin/dashboard.php">Gecko</a></h1>
 
@@ -53,7 +149,7 @@ jQuery(document).ready(function(){
 		<div id="content" class="container_16 clearfix">
 			<div class="grid_11">
 				<h2 style="padding-left:22px;">Web Pages</h2>
-				<form name="form1" method="post" action="delete_webpage.php">
+				
 <table id="jtable">
 <thead>
 <tr>
@@ -76,10 +172,10 @@ while($row=mysql_fetch_array($sql)){
 </tr>
 <?php } ?>
 <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-<tr><td>&nbsp;</td><td><input type="submit" name="delete" value="delete" /></td></tr>
+<tr><td>&nbsp;</td><td><input type="submit" name="delete" id="delete" value="delete" /></td></tr>
 </tbody>
 </table>
-</form>
+
 			</div>
 			
 				<div class="grid_5">

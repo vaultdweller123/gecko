@@ -11,7 +11,7 @@ require_once("include/connect.php");
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<title>Steal My Admin</title>
+		<title>Gecko</title>
 		<link rel="stylesheet" href="css/960.css" type="text/css" media="screen" charset="utf-8" />
 		<link rel="stylesheet" href="css/template.css" type="text/css" media="screen" charset="utf-8" />
 		<link rel="stylesheet" href="css/colour.css" type="text/css" media="screen" charset="utf-8" />
