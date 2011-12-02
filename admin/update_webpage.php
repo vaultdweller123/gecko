@@ -64,7 +64,12 @@ jQuery(document).ready(function(){
 				}else{
 				
 				
-					alert('Please enter webpage name');
+					jQuery("#jalert1").dialog({
+												autoOpen: false,
+												show: "blind",
+												hide: "explode"
+											});
+											jQuery("#jalert1").dialog("open");
 				
 				}
 		
@@ -77,6 +82,9 @@ jQuery(document).ready(function(){
 	</head>
 	
 	<body>
+	
+	
+	<div id="jalert1" title="gecko" style="display:none;">Please enter webpage name</div>
 	
 	
 

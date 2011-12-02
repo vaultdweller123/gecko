@@ -29,6 +29,7 @@ include_once("include/loadjQuery.php");
 <script type="text/javascript">
 jQuery(document).ready(function(){
 
+	// check all 
 	jQuery("#chkall").click(function(){
 	
 	
@@ -41,32 +42,34 @@ jQuery(document).ready(function(){
 
 	});
 	
-	
+	// delete
 	jQuery("#delete").click(function(){
 			
 			
-			
+				// stores all selected
 				var chk = new Array();
 				var i = 0;
 				jQuery("input:checked").each(function(){
 
-				chk[i] = jQuery(this).val();
-				i++;
+					chk[i] = jQuery(this).val();
+					i++;
 
 				});
 				
 			
 			
-			
+				// if at least one item is selected
 				if(chk!=""){
 				
-				jQuery("#jalert1").dialog( "destroy" );
+				// instatiate the delete confirmation box
 				jQuery("#jalert1").dialog({
 							buttons:{
+							
 								"yes": function() {
+								
+									// request page
 									jQuery.post("/admin/delete_webpage.php",{ webpage:chk }, function(data){
-									
-									
+										//success
 										if(data=="success"){
 										
 											jQuery("input:checked").parent().parent().remove();
@@ -78,6 +81,7 @@ jQuery(document).ready(function(){
 											});
 											jQuery("#jalert1").dialog( "close" );
 										
+										//fail
 										}else{
 										
 											jQuery("#jalert2").dialog({
@@ -91,8 +95,6 @@ jQuery(document).ready(function(){
 									
 											
 										});
-										
-										
 												
 										
 								},
@@ -111,13 +113,14 @@ jQuery(document).ready(function(){
 								
 							
 						});
+						// call the delete confirmation box
 						jQuery("#jalert1").dialog("open");			
 									
 							
 			
 					
 					
-					
+				// no selected	
 				}else{
 		
 					jQuery("#jalert3").dialog({
