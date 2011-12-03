@@ -41,7 +41,7 @@ jQuery(document).ready(function(){
 
 	});
 	
-	
+	// edit menu name, id and class
 	jQuery("#edit_name").click(function(){
 	
 		jQuery("#menu_name").removeAttr("disabled");
