@@ -49,7 +49,7 @@ jQuery(document).ready(function(){
 				// stores all selected
 				var chk = new Array();
 				var i = 0;
-				jQuery("input:checked").each(function(){
+				jQuery("input.menu:checked").each(function(){
 
 					chk[i] = jQuery(this).val();
 					i++;
@@ -63,6 +63,7 @@ jQuery(document).ready(function(){
 				
 				// instatiate the delete confirmation box
 				jQuery("#jalert1").dialog({
+							hide: "explode",
 							buttons:{
 							
 								"yes": function() {
@@ -73,12 +74,10 @@ jQuery(document).ready(function(){
 										if(data=="success"){
 										
 											jQuery("input:checked").parent().parent().remove();
-													jQuery("#jalert1").dialog({
-										
-													autoOpen: false,
-													hide: "explode"
-										
-											});
+													xnum = jQuery("input.menu").length;
+											if(xnum==0){
+												jQuery("#jtable tbody").prepend("<tr><td colspan=\"2\">No Menu Created!</td></tr>");
+											}
 											jQuery("#jalert1").dialog( "close" );
 										
 										//fail
@@ -154,7 +153,7 @@ jQuery(document).ready(function(){
 			<div class="grid_11">
 				<h2 style="padding-left:22px;" style="padding-left:22px;">Menu</h2>
 				
-<table>
+<table id="jtable">
 <thead>
 <tr>
 <th style="width:22px;"><input type="checkbox" name="chkall" id="chkall" style="width:auto!important;"  /></th><th>Name</th>
@@ -167,13 +166,27 @@ require_once("include/connect.php");
 
 $sql = mysql_query("SELECT * FROM menu");
 
+
+if(mysql_num_rows($sql)==0){
+?>
+
+<tr><td colspan="2">No Menu Created!</td></tr>
+
+<?php
+
+}else{
+
 while($row=mysql_fetch_array($sql)){
 
 ?>
 <tr>
 <td style="width:22px;"><input type="checkbox" name="menu[]" id="menu" class="menu" value="<?=$row['id']?>" style="width:auto!important;" /></td><td><a href="update_menu.php?id=<?=$row['id']?>"><?=$row['name']?><a/></td>
 </tr>
-<?php } ?>
+<?php } 
+
+}
+
+?>
 <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr><td>&nbsp;</td><td><input type="submit" name="delete" id="delete" value="delete" /></td></tr>
 </tbody>

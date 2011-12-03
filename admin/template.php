@@ -33,9 +33,9 @@ jQuery(document).ready(function(){
 	
 	
 		if(jQuery(this).attr("checked")=="checked"){
-			jQuery(".webpage").attr("checked","checked");
+			jQuery(".template").attr("checked","checked");
 		}else{
-			jQuery(".webpage").removeAttr("checked");
+			jQuery(".template").removeAttr("checked");
 		}
 		
 
@@ -50,7 +50,8 @@ jQuery(document).ready(function(){
 				// stores all selected
 				var chk = new Array();
 				var i = 0;
-				jQuery("input:checked").each(function(){
+				var xnum;
+				jQuery("input.template:checked").each(function(){
 
 					chk[i] = jQuery(this).val();
 					i++;
@@ -64,6 +65,7 @@ jQuery(document).ready(function(){
 				
 				// instatiate the delete confirmation box
 				jQuery("#jalert1").dialog({
+							hide: "explode",
 							buttons:{
 							
 								"yes": function() {
@@ -74,17 +76,15 @@ jQuery(document).ready(function(){
 										if(data=="success"){
 										
 											jQuery("input:checked").parent().parent().remove();
-													jQuery("#jalert1").dialog({
-										
-													autoOpen: false,
-													hide: "explode"
-										
-											});
+											xnum = jQuery("input.template").length;
+											if(xnum==0){
+												jQuery("#jtable tbody").prepend("<tr><td colspan=\"2\">No Template Created!</td></tr>");
+											}
 											jQuery("#jalert1").dialog( "close" );
 										
 										//fail
 										}else{
-										
+											jQuery("#jalert1").dialog( "close" );
 											jQuery("#jalert2").dialog({
 												autoOpen: false,
 												show: "blind",
@@ -155,7 +155,7 @@ jQuery(document).ready(function(){
 			<div class="grid_11">
 				<h2 style="padding-left:22px;" style="padding-left:22px;">Templates</h2>
 				
-<table>
+<table id="jtable">
 <thead>
 <tr>
 <th style="width:22px;"><input type="checkbox" name="chkall" id="chkall" style="width:auto!important;" /></th><th>Name</th>
@@ -167,13 +167,23 @@ require_once("include/connect.php");
 
 $sql = mysql_query("SELECT * FROM template");
 
-while($row=mysql_fetch_array($sql)){
+if(mysql_num_rows($sql)==0){ ?>
+
+<tr><td colspan="2">No Template Created!</td></tr>
+
+<?php
+}else{
+	while($row=mysql_fetch_array($sql)){
 
 ?>
 <tr>
 <td style="width:22px;"><input type="checkbox" name="template[]" id="template" class="template" value="<?=$row['id']?>" style="width:auto!important;" /></td><td><a href="update_template.php?id=<?=$row['id']?>"><?=$row['name']?><?php if($row['gdefault']==1){ echo "(default)"; } ?><a/></td>
 </tr>
-<?php } ?>
+<?php } 
+
+
+}
+?>
 <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr><td>&nbsp;</td><td><input type="submit" name="delete" id="delete" value="delete" /></td></tr>
 </tbody>
