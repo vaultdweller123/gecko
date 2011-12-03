@@ -2,6 +2,11 @@
 //prevent URL direct access - start
 session_start();
 if(isset($_SESSION['id'])){
+
+$id = $_GET['id'];
+$gecko_menu = 2011;
+
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -31,15 +36,140 @@ jQuery(document).ready(function(){
 
 	jQuery("#menu_item_url").click(function(){
 
-		
+		// select webpage pop up
 		window.open("/admin/webpage_list.php",'','width=300,height=300');
 
-	})
+	});
+	
+	
+	jQuery("#edit_name").click(function(){
+	
+		jQuery("#menu_name").removeAttr("disabled");
+		jQuery(this).hide();
+		jQuery("#update_name").show();
+	
+	});
+	
+	
+	jQuery("#edit_id").click(function(){
+	
+		jQuery("#menu_id").removeAttr("disabled");
+		jQuery(this).hide();
+		jQuery("#update_id").show();
+	
+	});
+	
+	
+	jQuery("#edit_class").click(function(){
+	
+		jQuery("#menu_class").removeAttr("disabled");
+		jQuery(this).hide();
+		jQuery("#update_class").show();
+	
+	});
+	
+	
+	jQuery("#update_name").click(function(){
+	
+		var x = jQuery("#menu_name").val();
+	
+		jQuery.post("/admin/update_menu3.php",{ x:x, y:"name", menu:"<?=$id?>" }, function(data){
+		
+			if(data="success"){
+				
+				jQuery("#jcheck_name").fadeIn();
+				jQuery("#menu_name").attr("disabled","disabled");
+				jQuery("#update_name").hide();
+				jQuery("#edit_name").show();
+				
+				
+			}else{
+			
+				jQuery("#jalert1").dialog({
+					autoOpen: false,
+					show: "blind",
+					hide: "explode"
+				});
+				jQuery("#jalert1").dialog("open");
+				
+			}
+		
+		
+		});
+	
+	});
+	
+	
+	jQuery("#update_id").click(function(){
+	
+		var x = jQuery("#menu_id").val();
+	
+		jQuery.post("/admin/update_menu3.php",{ x:x, y:"id", menu:"<?=$id?>" }, function(data){
+		
+			if(data="success"){
+				
+				jQuery("#jcheck_id").fadeIn("blind");
+				jQuery("#menu_id").attr("disabled","disabled");
+				jQuery("#update_id").hide();
+				jQuery("#edit_id").show();
+				
+				
+			}else{
+			
+				jQuery("#jalert1").dialog({
+					autoOpen: false,
+					show: "blind",
+					hide: "explode"
+				});
+				jQuery("#jalert1").dialog("open");
+				
+			}
+		
+		
+		});
+	
+	});
+	
+	
+	jQuery("#update_class").click(function(){
+	
+		var x = jQuery("#menu_class").val();
+	
+		jQuery.post("/admin/update_menu3.php",{ x:x, y:"class", menu:"<?=$id?>" }, function(data){
+		
+			if(data="success"){
+				
+				jQuery("#jcheck_class").fadeIn("blind");
+				jQuery("#menu_class").attr("disabled","disabled");
+				jQuery("#update_class").hide();
+				jQuery("#edit_class").show();
+				
+				
+			}else{
+			
+				jQuery("#jalert1").dialog({
+					autoOpen: false,
+					show: "blind",
+					hide: "explode"
+				});
+				jQuery("#jalert1").dialog("open");
+				
+			}
+		
+		
+		});
+	
+	});
+	
+	
+	
 
 });
 </script>
 	</head>
 	<body>
+	
+	<div id="jalert1" title="gecko" style="display:none;">Fail!</div>
 
 		<h1 id="head"><a style="color:#FFFFFF;text-decoration:none;" href="/admin/dashboard.php">Gecko</a></h1>
 
@@ -52,8 +182,6 @@ jQuery(document).ready(function(){
 			
 			<?php
 
-$id = $_GET['id'];
-$gecko_menu = 2011;
 
 require_once("include/connect.php");
 
@@ -61,12 +189,15 @@ $sql = mysql_query("SELECT * FROM menu WHERE id='".$id."'");
 while($row=mysql_fetch_array($sql)){
 
 ?>
-<h2>Name: <?=$row['name']?><br />
-ID: <?=$row['elem_id']?><br />
-Tag: {gecko_menu_<?=($gecko_menu+$row['id'])?>}</h2>
+<table style="width:auto;">
+<tr><td>Name:</td><td><input type="text" style="width: 234px" name="menu_name" id="menu_name" value="<?=$row['name']?>" disabled="disabled"/>&nbsp;&nbsp;<button id="edit_name" type="button">edit</button><button id="update_name" style="display:none;" type="button">update</button><img id="jcheck_name" style="padding-left:4px;position:relative;top:3px;display:none;" src="css/check.jpg" /></td></tr>
+<tr><td>ID:</td><td><input type="text" style="width: 234px" name="menu_id" id="menu_id" value="<?=$row['elem_id']?>" disabled="disabled" />&nbsp;&nbsp;<button type="button" id="edit_id">edit</button><button id="update_id" style="display:none;" type="button">update</button><img id="jcheck_id" style="padding-left:4px;position:relative;top:3px;display:none;" src="css/check.jpg" /></td></tr>
+<tr><td>Class:</td><td><input type="text" style="width: 234px" name="menu_class" id="menu_class" value="<?=$row['elem_class']?>" disabled="disabled" />&nbsp;&nbsp;<button type="button" id="edit_class">edit</button><button id="update_class" style="display:none;" type="button">update</button><img id="jcheck_class" style="padding-left:4px;position:relative;top:3px;display:none;" src="css/check.jpg" /></td></tr>
+<tr><td>Tag</td><td>{gecko_menu_<?=($gecko_menu+$row['id'])?>}</td></tr>
+
 <?php } ?>
 <form method="post" action="update_menu2.php" name="form1">
-<table style="width:auto;">
+
 
 <tr><td>Item Name</td><td><input type="text" name="menu_item_name" style="width: 234px" /></td></tr>
 <tr><td>Item URL</td><td><input type="text" id="menu_item_url" name="menu_item_url" style="width: 234px" /></td></tr>
