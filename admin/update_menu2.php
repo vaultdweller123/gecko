@@ -12,7 +12,7 @@ $item_name = mysql_real_escape_string($_POST['menu_item_name']);
 $item_url = mysql_real_escape_string($_POST['menu_item_url']);
 $item_base = mysql_real_escape_string($_POST['menu_item_base']);
 
-if($item_name){
+
 
 require_once("include/connect.php");
 
@@ -64,28 +64,7 @@ jQuery(document).ready(function(){
 
 }
 
-}else{
-?>
 
-<script type="text/javascript">
-jQuery(document).ready(function(){
-
-		jQuery("#jalert1").dialog({
-				autoOpen: false,
-				show: "blind",
-				hide: "explode",
-				close: function() {
-					window.location='/admin/update_menu.php?id=<?=$menu_id?>';
-				}
-		});
-		jQuery("#jalert1").dialog("open");
-	
-});
-</script>
-<div id="jalert1" title="gecko" style="display:none;">Enter Menu Item name!</div>
-
-<?php
-}
 
 //prevent URL direct access - end
 }else{

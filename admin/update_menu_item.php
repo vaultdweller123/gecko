@@ -162,6 +162,31 @@ jQuery(document).ready(function(){
 	
 	});
 	
+	
+	
+	
+	// validate form
+	jQuery("#jform").submit(function(){
+	
+		var xsub = jQuery("#menu_item_name").val();
+	
+		if(xsub==""){
+			
+			jQuery("#jalert2").dialog({
+				autoOpen: false,
+				show: "blind",
+				hide: "explode"
+			});
+			jQuery("#jalert2").dialog("open");
+			return false;
+				
+		}else{
+			return true;
+		}
+	
+	});
+	
+	
 
 });
 </script>
@@ -169,6 +194,7 @@ jQuery(document).ready(function(){
 	<body>
 	
 	<div id="jalert1" title="gecko" style="display:none;">Fail!</div>
+	<div id="jalert2" title="gecko" style="display:none;">Enter Menu Item name</div>
 
 		<h1 id="head"><a style="color:#FFFFFF;text-decoration:none;" href="/admin/dashboard.php">Gecko</a></h1>
 
@@ -199,7 +225,7 @@ while($row=mysql_fetch_array($sql)){
 
 
 <?php } ?>
-<form name="form1" method="post" action="update_menu_item2.php">
+<form name="form1" method="post" action="update_menu_item2.php" id="jform">
 <?php
 
 
@@ -210,7 +236,7 @@ while($row5=mysql_fetch_array($sql5)){
 ?>
 
 
-<tr><td>Item Name</td><td><input type="text" name="menu_item_name" value="<?=$row5['name']?>" style="width: 234px" /></td></tr>
+<tr><td>Item Name</td><td><input type="text" name="menu_item_name" id="menu_item_name" value="<?=$row5['name']?>" style="width: 234px" /></td></tr>
 <tr><td>Item URL</td><td><input type="text" name="menu_item_url" id="menu_item_url" value="<?=$row5['url']?>" style="width: 234px" /></td></tr>
 <tr><td>Item Base</td>
 <td>
