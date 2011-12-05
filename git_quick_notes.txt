@@ -12,5 +12,5 @@
 2.1 ) Reset using git checkout
 	git checkout hash123
 	git checkout -b new_branch
-2.2) Reset using git reset
+2.2 ) Reset using git reset
 	git reset --hard hash123
