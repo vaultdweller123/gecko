@@ -15,4 +15,3 @@ a. )
 	git checkout -b new_branch
 b.)
 	git reset --hard hash123
-	
