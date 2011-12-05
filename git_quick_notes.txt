@@ -1,5 +1,6 @@
 ---------- GIT quick notes ----------
 
+# Merging
 1.) replace other branch to master
 
 		git checkout other_branch
@@ -7,4 +8,11 @@
 		git checkout master
 		git merge other_branch
 		
-// git reset daw
+# Reset
+2) reset using checkout
+a. )
+	git checkout hash123
+	git checkout -b new_branch
+b.)
+	git reset --hard hash123
+	
