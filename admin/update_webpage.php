@@ -110,7 +110,7 @@ while($row=mysql_fetch_array($sql)){
 <h1>Edit Web Page</h1>
 			
 		<?php
-if($_GET['frm_crt']){
+if(isset($_GET['frm_crt'])){
 ?>
 <div id="message" style="background-color:green;">New Web Page Saved!</div>
 <?php
@@ -135,7 +135,7 @@ $sql2 = mysql_query("SELECT * FROM template");
 while($row2=mysql_fetch_array($sql2)){
 ?>
 
-<option value="<?=$row2['id']?>" <?php if($row2[id]==$row['temp_id']){ echo "selected"; } ?>><?=$row2['name']?></option>
+<option value="<?=$row2['id']?>" <?php if($row2['id']==$row['temp_id']){ echo "selected"; } ?>><?=$row2['name']?></option>
 <?php } ?>
 </select>
 </td>
