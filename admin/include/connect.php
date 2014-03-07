@@ -2,7 +2,7 @@
 
 
 
-include_once('/admin/class/config.php');
+require_once('class/config.php');
 
 // connect
 $conf = new Gconfig();

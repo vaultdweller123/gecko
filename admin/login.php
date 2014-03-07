@@ -3,7 +3,7 @@
 $user = $_POST['user'];
 $pass = $_POST['pass'];
 
-require_once("admin/include/connect.php");
+require_once("include/connect.php");
 
 session_start();
 
@@ -28,7 +28,5 @@ if(mysql_num_rows($sql)>0){
 	// fail
 	echo "username doesn't exist";
 }
-
-
 
 ?>
