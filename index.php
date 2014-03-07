@@ -1,7 +1,8 @@
 <?php
-// All right reserved JC, Ron and Aldrin 2011
+
 $page = $_GET['page'];
-require_once("admin/include/connect.php");
+
+require_once "connect.php";
 
 // with page
 if($page){
