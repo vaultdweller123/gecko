@@ -1,8 +1,7 @@
 <?php
 // All right reserved JC, Ron and Aldrin 2011
 $page = $_GET['page'];
-mysql_connect("localhost","root","");
-mysql_select_db("gecko");
+require_once("admin/include/connect.php");
 
 // with page
 if($page){

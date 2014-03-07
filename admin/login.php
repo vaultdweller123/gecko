@@ -3,7 +3,8 @@
 $user = $_POST['user'];
 $pass = $_POST['pass'];
 
-include_once('include/connect.php');
+require_once("admin/include/connect.php");
+
 session_start();
 
 $sql = mysql_query("SELECT * FROM users WHERE username = '".$user."'");
