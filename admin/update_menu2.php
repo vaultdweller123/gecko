@@ -6,6 +6,7 @@ if(isset($_SESSION['id'])){
 
 //load jQuery
 include_once("include/loadjQuery.php");
+require_once("include/connect.php");
 
 $menu_id = $_POST['menu_id'];
 $item_name = mysql_real_escape_string($_POST['menu_item_name']);
@@ -14,7 +15,7 @@ $item_base = mysql_real_escape_string($_POST['menu_item_base']);
 
 
 
-require_once("include/connect.php");
+
 
 $sql = mysql_query("INSERT INTO menu_item VALUES('','".$item_name."','".$item_url."','".$item_base."','".$menu_id."')");
 
